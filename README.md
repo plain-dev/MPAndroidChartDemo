@@ -16,7 +16,9 @@
 
 ***Preview***
 
-![preview](./assets/preview/big_decimal_chart_preview.png)
+|☀|🌙|
+|:-:|:-:|
+|![Light](./assets/preview/big_decimal_chart_preview_light.png)|![Dark](./assets/preview/big_decimal_chart_preview_dark.png)|
 
 ***Simple Data***, take ***timestamp*** as an example
 
