@@ -25,5 +25,9 @@
         <item name="header02TextColor">@color/black</item>
         <item name="header03TextColor">@color/black</item>
         <item name="bodyTextColor">@color/color_666666</item>
+
+        <item name="bottomSheetDialogTheme">
+            @style/Theme.MaterialComponents.Light.BottomSheetDialog.Expanded
+        </item>
     </style>
 </resources>

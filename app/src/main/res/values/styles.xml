@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MaterialComponents.Light.BottomSheetDialog.Expanded" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal.Expanded
+        </item>
+    </style>
+
+    <style name="Theme.MaterialComponents.BottomSheetDialog.Expanded" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal.Expanded
+        </item>
+    </style>
+
+    <style name="Widget.MaterialComponents.BottomSheet.Modal.Expanded" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="shapeAppearanceOverlay">
+            @style/ShapeAppearance.MaterialComponents.BottomSheetDialog
+        </item>
+    </style>
+
+    <style name="ShapeAppearance.MaterialComponents.BottomSheetDialog">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+</resources>

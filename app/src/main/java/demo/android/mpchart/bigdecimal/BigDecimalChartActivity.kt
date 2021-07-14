@@ -3,13 +3,13 @@ package demo.android.mpchart.bigdecimal
 import android.graphics.Typeface
 import android.os.Bundle
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import demo.android.mpchart.base.BaseActivity
 import demo.android.mpchart.R
 import demo.android.mpchart.entity.ChartData
 import demo.android.mpchart.formatter.TimestampValueFormat
@@ -18,7 +18,7 @@ import demo.android.mpchart.util.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class BigDecimalChartActivity : AppCompatActivity() {
+class BigDecimalChartActivity : BaseActivity() {
 
     private val labelTextColor by lazy {
         R.attr.chartLabelColor.toColorByThemeAttr(this)

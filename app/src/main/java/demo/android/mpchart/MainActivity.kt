@@ -1,14 +1,13 @@
 package demo.android.mpchart
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import com.google.android.material.button.MaterialButton
+import demo.android.mpchart.base.BaseActivity
 import demo.android.mpchart.bigdecimal.BigDecimalChartActivity
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : BaseActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
