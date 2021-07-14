@@ -13,6 +13,8 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import demo.android.mpchart.R
 import demo.android.mpchart.entity.ChartData
 import demo.android.mpchart.formatter.TimestampValueFormat
+import demo.android.mpchart.marker.BigDecimalMarkerView
+import demo.android.mpchart.util.toRealTimestamp
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -93,17 +95,18 @@ class BigDecimalChartActivity : AppCompatActivity() {
             dateList.add(xValue)
         }
 
-        val timestampValueFormat = TimestampValueFormat(firstValue, "HH:mm")
+        val timestampValueFormat1 = TimestampValueFormat(firstValue, "HH:mm")
+        val timestampValueFormat2 = TimestampValueFormat(firstValue, "MM-dd HH:mm")
         val indexAxisValueFormatter = IndexAxisValueFormatter(dateList)
 
-        lineChart.axisLeft.valueFormatter = timestampValueFormat
+        lineChart.axisLeft.valueFormatter = timestampValueFormat1
         lineChart.xAxis.valueFormatter = indexAxisValueFormatter
 
         val lineDataSet = LineDataSet(entryList, "").apply {
-            valueFormatter = timestampValueFormat
+            valueFormatter = timestampValueFormat2
             highLightColor = "#302AC0D4".toColorInt()
             //highlightLineWidth = 1f
-            setDrawValues(true)
+            setDrawValues(false)
             setDrawCircleHole(true)
             setDrawCircles(true)
             setCircleColor("#F3F3F3".toColorInt())
@@ -116,6 +119,14 @@ class BigDecimalChartActivity : AppCompatActivity() {
 
         val lineData = LineData(lineDataSet)
         lineChart.data = lineData
+
+        val markerView = BigDecimalMarkerView(this).apply {
+            firstValue = this@BigDecimalChartActivity.firstValue
+            chartView = lineChart
+        }
+        lineChart.setDrawMarkers(true)
+        lineChart.marker = markerView
+
         lineChart.invalidate()
     }
 
@@ -139,15 +150,6 @@ class BigDecimalChartActivity : AppCompatActivity() {
         tvDataInfo.text = str.toString()
     }
 
-    /**
-     * 还原真实时间戳
-     *
-     * - [this] 原始时间戳
-     * - [index] 时间戳对应 X 轴下标，加上相应天数
-     */
-    private fun Long.toRealTimestamp(index: Int) =
-        this * 1000 + index * 24 * 60 * 60 * 1000
-
     private fun getSimpleData(): MutableList<ChartData> {
         // 时间戳要求
         // 数值过大去掉后面 000
@@ -163,11 +165,11 @@ class BigDecimalChartActivity : AppCompatActivity() {
             add(ChartData("1623519397", "06-18"))
             add(ChartData("1623500522", "06-19"))
 
-//            add(ChartData("1623509282", "06-12"))
-//            add(ChartData("1623513979", "06-13"))
-//            add(ChartData("1623519397", "06-14"))
-//            add(ChartData("1623500522", "06-15"))
-//            add(ChartData("1623510725", "06-16"))
+            //add(ChartData("1623509282", "06-12"))
+            //add(ChartData("1623513979", "06-13"))
+            //add(ChartData("1623519397", "06-14"))
+            //add(ChartData("1623500522", "06-15"))
+            //add(ChartData("1623510725", "06-16"))
 
         }
     }
