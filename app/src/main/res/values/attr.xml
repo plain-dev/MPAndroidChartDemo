@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ChartStyle">
+        <attr name="chartLabelColor" format="color" />
+        <attr name="chartGridLineColor" format="color" />
+        <attr name="chartLineSetHighLightLineColor" format="color" />
+        <attr name="chartLineSetCircleColor" format="color" />
+        <attr name="chartLineSetCircleHoleColor" format="color" />
+        <attr name="chartLineSetColorDefault" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="NormalStyle">
+        <attr name="header01TextColor" format="color" />
+        <attr name="header02TextColor" format="color" />
+        <attr name="header03TextColor" format="color" />
+
+        <attr name="bodyTextColor" format="color" />
+
+        <attr name="fluorescenceColor" format="color" />
+    </declare-styleable>
+</resources>

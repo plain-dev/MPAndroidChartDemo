@@ -7,4 +7,23 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="y_axis_grid_line_color_1">#59F5B6C2</color>
+    <color name="y_axis_grid_line_color_2">#59505050</color>
+    <color name="line_set_high_light_line_color_1">#302AC0D4</color>
+    <color name="line_set_high_light_line_color_2">#30FFC107</color>
+    <color name="line_set_circle_hole_color_1">#0EAEFF</color>
+    <color name="line_set_circle_hole_color_2">#673AB7</color>
+    <color name="line_set_default_color_1">#FDD461</color>
+    <color name="line_set_default_color_2">@color/purple_500</color>
+
+    <color name="text_bottom_fluorescence_color_1">#80FFC107</color>
+    <color name="text_bottom_fluorescence_color_2">#806200EE</color>
+
+    <color name="marker_view_bg_color_default">#E6202020</color>
+
+    <color name="color_333333">#FF333333</color>
+    <color name="color_f3f3f3">#FFF3F3F3</color>
+    <color name="color_666666">#FF666666</color>
+    <color name="color_999999">#FF999999</color>
 </resources>

@@ -12,5 +12,19 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!-- Customize your theme here. -->
+        <item name="fluorescenceColor">@color/text_bottom_fluorescence_color_2</item>
+
+        <item name="chartLabelColor">@color/color_f3f3f3</item>
+        <item name="chartGridLineColor">@color/y_axis_grid_line_color_2</item>
+        <item name="chartLineSetHighLightLineColor">@color/line_set_high_light_line_color_2</item>
+        <item name="chartLineSetCircleColor">@color/color_f3f3f3</item>
+        <item name="chartLineSetCircleHoleColor">@color/line_set_circle_hole_color_2</item>
+        <item name="chartLineSetColorDefault">@color/line_set_default_color_2</item>
+
+        <item name="header01TextColor">@color/white</item>
+        <item name="header02TextColor">@color/white</item>
+        <item name="header03TextColor">@color/white</item>
+        <item name="bodyTextColor">@color/color_f3f3f3</item>
     </style>
 </resources>

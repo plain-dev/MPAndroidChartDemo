@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MPChartDemo</string>
+
+    <string name="full_date_format">yyyy/MM/dd HH:mm</string>
+    <string name="time_format">HH:mm</string>
+    <string name="little_date_format">MM-dd HH:mm</string>
+    <string name="big_decimal_chart_title">Big Decimal Chart Demo</string>
+    <string name="time_to_fall_asleep">TIME TO FALL ASLEEP</string>
+    <string name="raw_data">Raw Data</string>
+    <string name="chart_no_data">📈 No chart data available.</string>
 </resources>

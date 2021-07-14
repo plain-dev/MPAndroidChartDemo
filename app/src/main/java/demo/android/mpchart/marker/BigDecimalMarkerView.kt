@@ -11,13 +11,15 @@ import com.github.mikephil.charting.utils.MPPointF
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.shape.CornerFamily
 import demo.android.mpchart.R
+import demo.android.mpchart.util.px
 import demo.android.mpchart.util.toRealTimestamp
+import demo.android.mpchart.util.toStringByRes
 import java.text.SimpleDateFormat
 import java.util.*
 
 class BigDecimalMarkerView(
     context: Context,
-    dateFormatStr: String = "yyyy/MM/dd HH:mm"
+    dateFormatStr: String = R.string.full_date_format.toStringByRes()
 ) : MarkerView(
     context,
     R.layout.layout_big_decimal_marker
@@ -39,7 +41,7 @@ class BigDecimalMarkerView(
 
     private fun setCardViewStyle(cardView: MaterialCardView) {
         cardView.shapeAppearanceModel = cardView.shapeAppearanceModel.toBuilder().apply {
-            setAllCorners(CornerFamily.ROUNDED, 20f)
+            setAllCorners(CornerFamily.ROUNDED, 10f.px)
         }.build()
     }
 

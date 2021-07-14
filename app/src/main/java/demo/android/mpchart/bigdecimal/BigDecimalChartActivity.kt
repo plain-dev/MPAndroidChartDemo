@@ -1,9 +1,9 @@
 package demo.android.mpchart.bigdecimal
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.toColorInt
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
@@ -14,14 +14,18 @@ import demo.android.mpchart.R
 import demo.android.mpchart.entity.ChartData
 import demo.android.mpchart.formatter.TimestampValueFormat
 import demo.android.mpchart.marker.BigDecimalMarkerView
-import demo.android.mpchart.util.toRealTimestamp
+import demo.android.mpchart.util.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 class BigDecimalChartActivity : AppCompatActivity() {
 
+    private val labelTextColor by lazy {
+        R.attr.chartLabelColor.toColorByThemeAttr(this)
+    }
+
     private val dateFormat by lazy {
-        SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.CHINA)
+        SimpleDateFormat(R.string.full_date_format.toStringByRes(), Locale.CHINA)
     }
 
     private lateinit var lineChart: LineChart
@@ -39,7 +43,7 @@ class BigDecimalChartActivity : AppCompatActivity() {
     private fun init() {
         lineChart = findViewById(R.id.lineChart)
         tvDataInfo = findViewById(R.id.tvDataInfo)
-        title = "Big Decimal Chart Demo"
+        title = R.string.big_decimal_chart_title.toStringByRes()
         setChartBaseStyle(lineChart)
         showChart(lineChart)
         showDataInfo(tvDataInfo)
@@ -49,6 +53,10 @@ class BigDecimalChartActivity : AppCompatActivity() {
         // Use default.
 
         setScaleEnabled(false)
+
+        setNoDataText(R.string.chart_no_data.toStringByRes())
+        setNoDataTextColor(R.attr.bodyTextColor.toColorByThemeAttr(this@BigDecimalChartActivity))
+        setNoDataTextTypeface(Typeface.DEFAULT_BOLD)
 
         // Boarders
         //setDrawBorders(true)
@@ -63,21 +71,21 @@ class BigDecimalChartActivity : AppCompatActivity() {
         axisLeft.apply {
             setDrawGridLines(true)
             setDrawAxisLine(false)
-            //gridLineWidth = 1f
-            gridColor = "#60f5b6c2".toColorInt()
-            textColor = "#333333".toColorInt()
-            xOffset = 15f
-            //yOffset = 15f
+            //gridLineWidth = 1f.px
+            gridColor = R.attr.chartGridLineColor.toColorByThemeAttr(this@BigDecimalChartActivity)
+            textColor = labelTextColor
+            xOffset = 5f.px
+            //yOffset = 5f.px
         }
 
         xAxis.apply {
             setDrawGridLines(false)
             setDrawAxisLine(false)
             position = XAxis.XAxisPosition.BOTTOM
-            textColor = "#333333".toColorInt()
+            textColor = labelTextColor
             labelRotationAngle = 45f
-            //xOffset = 15f
-            yOffset = 15f
+            //xOffset = 5f.px
+            yOffset = 5f.px
         }
 
     }
@@ -95,39 +103,49 @@ class BigDecimalChartActivity : AppCompatActivity() {
             dateList.add(xValue)
         }
 
-        val timestampValueFormat1 = TimestampValueFormat(firstValue, "HH:mm")
-        val timestampValueFormat2 = TimestampValueFormat(firstValue, "MM-dd HH:mm")
-        val indexAxisValueFormatter = IndexAxisValueFormatter(dateList)
+        if (entryList.isNotEmpty() && dateList.isNotEmpty()) {
+            // Value Format
+            val timestampValueFormat1 =
+                TimestampValueFormat(firstValue, R.string.time_format.toStringByRes())
+            val timestampValueFormat2 =
+                TimestampValueFormat(firstValue, R.string.little_date_format.toStringByRes())
+            val indexAxisValueFormatter = IndexAxisValueFormatter(dateList)
 
-        lineChart.axisLeft.valueFormatter = timestampValueFormat1
-        lineChart.xAxis.valueFormatter = indexAxisValueFormatter
+            lineChart.axisLeft.valueFormatter = timestampValueFormat1
+            lineChart.xAxis.valueFormatter = indexAxisValueFormatter
 
-        val lineDataSet = LineDataSet(entryList, "").apply {
-            valueFormatter = timestampValueFormat2
-            highLightColor = "#302AC0D4".toColorInt()
-            //highlightLineWidth = 1f
-            setDrawValues(false)
-            setDrawCircleHole(true)
-            setDrawCircles(true)
-            setCircleColor("#F3F3F3".toColorInt())
-            circleHoleColor = "#0EAEFF".toColorInt()
-            color = "#FDD461".toColorInt()
-            valueTextColor = "#333333".toColorInt()
-            lineWidth = 3f
-            mode = LineDataSet.Mode.LINEAR
+            val lineDataSet = LineDataSet(entryList, "").apply {
+                valueFormatter = timestampValueFormat2
+                highLightColor =
+                    R.attr.chartLineSetHighLightLineColor.toColorByThemeAttr(this@BigDecimalChartActivity)
+                //highlightLineWidth = 1f.px
+                setDrawValues(false)
+                setDrawCircleHole(true)
+                setDrawCircles(true)
+                circleRadius = 2f.px
+                circleHoleRadius = 1f.px
+                setCircleColor(R.attr.chartLineSetCircleColor.toColorByThemeAttr(this@BigDecimalChartActivity))
+                circleHoleColor =
+                    R.attr.chartLineSetCircleHoleColor.toColorByThemeAttr(this@BigDecimalChartActivity)
+                color =
+                    R.attr.chartLineSetColorDefault.toColorByThemeAttr(this@BigDecimalChartActivity)
+                valueTextColor = labelTextColor
+                lineWidth = 1.5f.px
+                mode = LineDataSet.Mode.LINEAR
+            }
+
+            val lineData = LineData(lineDataSet)
+            lineChart.data = lineData
+
+            val markerView = BigDecimalMarkerView(this).apply {
+                firstValue = this@BigDecimalChartActivity.firstValue
+                chartView = lineChart
+            }
+            lineChart.setDrawMarkers(true)
+            lineChart.marker = markerView
+
+            lineChart.invalidate()
         }
-
-        val lineData = LineData(lineDataSet)
-        lineChart.data = lineData
-
-        val markerView = BigDecimalMarkerView(this).apply {
-            firstValue = this@BigDecimalChartActivity.firstValue
-            chartView = lineChart
-        }
-        lineChart.setDrawMarkers(true)
-        lineChart.marker = markerView
-
-        lineChart.invalidate()
     }
 
     private fun showDataInfo(tvDataInfo: TextView) {
