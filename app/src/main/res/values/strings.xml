@@ -1,21 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MPChartDemo</string>
+    <string name="app_name">MPAndroidChart 案例</string>
 
-    <string name="full_date_format">yyyy/MM/dd HH:mm</string>
+    <string name="full_date_format">yyyy年MM月dd日 HH:mm</string>
     <string name="time_format">HH:mm</string>
-    <string name="little_date_format">MM-dd HH:mm</string>
+    <string name="little_date_format">MM月dd日 HH:mm</string>
 
-    <string name="start_big_decimal_chart">Start Big Decimal Chart</string>
+    <string name="start_big_decimal_chart">打开「大数据」图表案例页面</string>
 
-    <string name="big_decimal_chart_title">Big Decimal Chart Demo</string>
-    <string name="time_to_fall_asleep">TIME TO FALL ASLEEP</string>
-    <string name="raw_data">Raw Data</string>
-    <string name="chart_no_data">📈 No chart data available.</string>
+    <string name="big_decimal_chart_title">「大数据」图表案例</string>
+    <string name="time_to_fall_asleep">入睡时间</string>
+    <string name="raw_data">原始数据</string>
+    <string name="chart_no_data">📈 图表数据为空。</string>
 
-    <string name="preference_screen_title">Preferences</string>
-    <string name="theme_preference_option_system_default">Auto</string>
-    <string name="theme_preference_option_battery_saver">Battery Saver</string>
-    <string name="theme_preference_option_light">Light</string>
-    <string name="theme_preference_option_dark">Dark</string>
-    <string name="theme_preference_description">Theme</string>
+    <string name="preference_screen_title">首选项</string>
+    <string name="theme_preference_option_system_default">跟随系统</string>
+    <string name="theme_preference_option_battery_saver">省电模式</string>
+    <string name="theme_preference_option_light">亮</string>
+    <string name="theme_preference_option_dark">暗</string>
+    <string name="theme_preference_description">主题</string>
 </resources>
