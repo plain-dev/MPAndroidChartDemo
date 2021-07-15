@@ -1,5 +1,6 @@
 package demo.android.mpchart.preference
 
+import android.app.Activity
 import android.os.Bundle
 import android.util.SparseIntArray
 import android.view.LayoutInflater
@@ -7,12 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.Px
 import androidx.core.view.ViewCompat
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.button.MaterialButtonToggleGroup
 import demo.android.mpchart.ChartApp
 import demo.android.mpchart.R
+import demo.android.mpchart.util.getWindowHeight
+import demo.android.mpchart.util.px
 import demo.android.mpchart.util.toDrawableByRes
 import demo.android.mpchart.util.toStringByRes
 
@@ -23,6 +29,16 @@ class AppPreferencesDialogFragment : BottomSheetDialogFragment() {
     }
 
     private val buttonIdToOptionId = SparseIntArray()
+
+    override fun onStart() {
+        super.onStart()
+        (dialog as? BottomSheetDialog)?.let { d ->
+            setBottomSheetNormal(dialog = d)
+        }
+        view?.let { v ->
+            setBottomSheetHeight(view = v, fullScreen = true)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -111,6 +127,39 @@ class AppPreferencesDialogFragment : BottomSheetDialogFragment() {
         //it.updateLayoutParams {
         //    width = ViewGroup.LayoutParams.MATCH_PARENT
         //}
+    }
+
+    private fun setBottomSheetNormal(
+        dialog: BottomSheetDialog,
+        @Px peekHeight: Int = 300f.px.toInt()
+    ) {
+        dialog.dismissWithAnimation = true
+        dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)?.let {
+            BottomSheetBehavior.from(
+                it
+            ).peekHeight = peekHeight
+        }
+    }
+
+    private fun setBottomSheetHeight(view: View, fullScreen: Boolean) {
+        val modalBottomSheetChildView: LinearLayout = view.findViewById(R.id.llDrawer)
+        val layoutParams = modalBottomSheetChildView.layoutParams
+        val behavior = (dialog as BottomSheetDialog).behavior
+        var fitToContents = true
+        var halfExpandedRatio = 0.5f
+        val windowHeight = getWindowHeight(context as Activity)
+        if (layoutParams != null) {
+            if (fullScreen) {
+                layoutParams.height = windowHeight
+                fitToContents = false
+                halfExpandedRatio = 0.7f
+            } else {
+                layoutParams.height = windowHeight * 3 / 5
+            }
+            modalBottomSheetChildView.layoutParams = layoutParams
+            behavior.isFitToContents = fitToContents
+            behavior.halfExpandedRatio = halfExpandedRatio
+        }
     }
 
 }
