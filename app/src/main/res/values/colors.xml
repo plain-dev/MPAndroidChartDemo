@@ -3,6 +3,11 @@
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
+
+    <color name="yellow_200">#FFFFF59D</color>
+    <color name="yellow_500">#FFFF9800</color>
+    <color name="yellow_700">#FFF57C00</color>
+
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -17,7 +22,7 @@
     <color name="line_set_default_color_1">#FDD461</color>
     <color name="line_set_default_color_2">@color/purple_500</color>
 
-    <color name="text_bottom_fluorescence_color_1">#80FFC107</color>
+    <color name="text_bottom_fluorescence_color_1">#80FF9800</color>
     <color name="text_bottom_fluorescence_color_2">#806200EE</color>
 
     <color name="marker_view_bg_color_default">#E6202020</color>
@@ -26,4 +31,5 @@
     <color name="color_f3f3f3">#FFF3F3F3</color>
     <color name="color_666666">#FF666666</color>
     <color name="color_999999">#FF999999</color>
+    <color name="color_353535">#FF353535</color>
 </resources>

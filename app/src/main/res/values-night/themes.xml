@@ -1,32 +1,70 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!--
+            🌙 [Theme] App 全局主题
+     -->
     <style name="Theme.MPChartDemo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
+        <!--
+                [ThemeOverlay] 覆写默认颜色
+        -->
+
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_200</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
+
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
+        <!--
+                覆写 colorSurface
+
+                - 改变 ActionBar 背景色，和 Status bar 颜色保持一致
+        -->
+        <item name="colorSurface">?attr/colorOnPrimary</item>
+
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Navigation bar color. -->
+        <item name="android:navigationBarColor" tools:targetApi="l">?android:attr/colorBackground
+        </item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+        <!--
+            [Attributes] 自定义属性
+        -->
+
+        <!-- 荧光笔颜色 -->
         <item name="fluorescenceColor">@color/text_bottom_fluorescence_color_2</item>
 
+        <!-- 图表 Label 颜色 -->
         <item name="chartLabelColor">@color/color_f3f3f3</item>
+        <!-- 图表网格线颜色 -->
         <item name="chartGridLineColor">@color/y_axis_grid_line_color_2</item>
+        <!-- 线图高亮线颜色 -->
         <item name="chartLineSetHighLightLineColor">@color/line_set_high_light_line_color_2</item>
+        <!-- 线图 Set 圆圈颜色 -->
         <item name="chartLineSetCircleColor">@color/color_f3f3f3</item>
+        <!-- 线图 Set 圆孔颜色 -->
         <item name="chartLineSetCircleHoleColor">@color/line_set_circle_hole_color_2</item>
+        <!-- 线图 Set 线条默认颜色 -->
         <item name="chartLineSetColorDefault">@color/line_set_default_color_2</item>
 
+        <!-- 自定义一级标题颜色 -->
         <item name="header01TextColor">@color/white</item>
+        <!-- 自定义二级标题颜色 -->
         <item name="header02TextColor">@color/white</item>
+        <!-- 自定义三级标题颜色 -->
         <item name="header03TextColor">@color/white</item>
+        <!-- 自定义正文颜色 -->
         <item name="bodyTextColor">@color/color_f3f3f3</item>
 
+        <!--
+            [BottomSheetDialog] 覆写 `bottomSheetDialogTheme`
+        -->
         <item name="bottomSheetDialogTheme">
             @style/Theme.MaterialComponents.BottomSheetDialog.Expanded
         </item>

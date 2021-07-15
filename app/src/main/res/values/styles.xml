@@ -1,26 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+            ☀ [BottomSheetDialog] 自定义样式
+     -->
     <style name="Theme.MaterialComponents.Light.BottomSheetDialog.Expanded" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal.Expanded
         </item>
+
+        <!-- 修改按钮 outline 颜色 -->
+        <!-- 方法一：直接覆写主题色 -->
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Light</item>
+        <!-- 方法二：自定义 materialButtonOutlinedStyle -->
+        <!--        <item name="materialButtonOutlinedStyle">-->
+        <!--            @style/Widget.MaterialComponents.Button.OutlinedButton.Light-->
+        <!--        </item>-->
+
+        <!-- Navigation bar color. -->
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">@color/white</item>
+        <item name="android:navigationBarDividerColor">@color/white</item>
+        <item name="android:colorBackground">@color/white</item>
     </style>
 
+    <!--
+            🌙 [BottomSheetDialog] 自定义样式
+    -->
     <style name="Theme.MaterialComponents.BottomSheetDialog.Expanded" parent="Theme.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal.Expanded
         </item>
+
+        <!-- 修改按钮 `outline` 颜色 -->
+        <!-- 方法一：直接覆写主题色 -->
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Night</item>
+        <!-- 方法二：自定义 materialButtonOutlinedStyle -->
+        <!--        <item name="materialButtonOutlinedStyle">-->
+        <!--            @style/Widget.MaterialComponents.Button.OutlinedButton.Night-->
+        <!--        </item>-->
+
+        <!--  Navigation bar color. -->
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">@color/color_353535</item>
+        <item name="android:navigationBarDividerColor">@color/color_353535</item>
+        <item name="android:colorBackground">@color/color_353535</item>
     </style>
 
+    <!--
+            自定义 BottomSheet Modal
+
+            - 使用 shapeAppearanceOverlay 覆写默认样式，设置边角大小、边角样式（Cut or Rounded）
+            - 使用 `android:background` 和 `backgroundTint` 设置背景色（默认：?android:attr/colorBackground）
+     -->
     <style name="Widget.MaterialComponents.BottomSheet.Modal.Expanded" parent="Widget.MaterialComponents.BottomSheet.Modal">
         <item name="shapeAppearanceOverlay">
             @style/ShapeAppearance.MaterialComponents.BottomSheetDialog
         </item>
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="backgroundTint">?android:attr/colorBackground</item>
     </style>
 
-    <style name="ShapeAppearance.MaterialComponents.BottomSheetDialog">
+    <!--
+            [BottomSheetDialog] 自定义 `ShapeAppearance` 样式
+    -->
+    <style name="ShapeAppearance.MaterialComponents.BottomSheetDialog" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">20dp</item>
         <item name="cornerSizeTopRight">20dp</item>
         <item name="cornerSizeBottomLeft">0dp</item>
         <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!--    <style name="Widget.MaterialComponents.Button.Light" parent="Widget.MaterialComponents.Button">-->
+    <!--        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Light</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="Widget.MaterialComponents.Button.Night" parent="Widget.MaterialComponents.Button">-->
+    <!--        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Night</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="Widget.MaterialComponents.Button.OutlinedButton.Light" parent="Widget.MaterialComponents.Button.OutlinedButton">-->
+    <!--        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Light</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="Widget.MaterialComponents.Button.OutlinedButton.Night" parent="Widget.MaterialComponents.Button.OutlinedButton">-->
+    <!--        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Night</item>-->
+    <!--    </style>-->
+
+    <!--
+            ☀ [Button] 覆写默认颜色
+
+            - `colorPrimary`    用作 background 或 stoke 颜色
+            - `colorOnPrimary`  用作 text 颜色
+    -->
+    <style name="ThemeOverlay.App.Button.Light" parent="">
+        <item name="colorPrimary">@color/yellow_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <!--
+        🌙 [Button] 覆写默认颜色
+
+        - `colorPrimary`    用作 background 或 stoke 颜色
+        - `colorOnPrimary`  用作 text 颜色
+    -->
+    <style name="ThemeOverlay.App.Button.Night" parent="">
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorOnPrimary">@color/black</item>
     </style>
 </resources>
