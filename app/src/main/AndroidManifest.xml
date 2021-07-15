@@ -12,16 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MPChartDemo"
         tools:ignore="AllowBackup">
+
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".splash.SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MPChartDemo.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".bigdecimal.BigDecimalChartActivity" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".bigdecimal.BigDecimalChartActivity"
+            android:exported="true" />
+
     </application>
 
 </manifest>

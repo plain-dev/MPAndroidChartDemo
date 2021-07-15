@@ -100,10 +100,10 @@
     </style>
 
     <!--
-        🌙 [Button] 覆写默认颜色
+            🌙 [Button] 覆写默认颜色
 
-        - `colorPrimary`    用作 background 或 stoke 颜色
-        - `colorOnPrimary`  用作 text 颜色
+            - `colorPrimary`    用作 background 或 stoke 颜色
+            - `colorOnPrimary`  用作 text 颜色
     -->
     <style name="ThemeOverlay.App.Button.Night" parent="">
         <item name="colorPrimary">@color/purple_200</item>

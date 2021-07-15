@@ -63,4 +63,20 @@
             @style/Theme.MaterialComponents.Light.BottomSheetDialog.Expanded
         </item>
     </style>
+
+    <!--
+            ☀ [Splash] 开屏主题
+
+            - 纯色背景 `android:windowBackground`
+            - 去除 `windowActionBar` 和 `windowNoTitle`
+            - 统一 `android:statusBarColor` 和 `android:navigationBarColor`
+    -->
+    <style name="Theme.MPChartDemo.SplashScreen">
+        <item name="android:windowBackground">@color/yellow_500</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- Navigation bar color. -->
+        <item name="android:navigationBarColor" tools:targetApi="l">@color/yellow_500</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
 </resources>
