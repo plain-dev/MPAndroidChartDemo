@@ -9,7 +9,8 @@ abstract class BaseAppPreferences {
 
         @JvmStatic
         protected val COMMON_PREFERENCES: ImmutableList<AppPreference> = ImmutableList.of(
-            ThemePreference()
+            ThemePreference(),
+            FullscreenPreference()
         )
 
     }

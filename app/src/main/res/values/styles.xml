@@ -19,8 +19,17 @@
         <!-- Navigation bar color. -->
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowLightNavigationBar">true</item>
+
         <item name="android:navigationBarColor" tools:targetApi="l">@color/white</item>
         <item name="android:navigationBarDividerColor">@color/white</item>
+
+        <!--  想要 BottomSheetDialog 自带的 E2E 生效，需要使 navigationBarColor 为透明或半透明-->
+        <!--        <item name="android:navigationBarColor" tools:targetApi="l">@android:color/transparent-->
+        <!--        </item>-->
+        <!--        <item name="android:navigationBarDividerColor">@android:color/transparent</item>-->
+        <!--        <item name="enableEdgeToEdge">true</item>-->
+        <!--        <item name="paddingTopSystemWindowInsets">true</item>-->
+
         <item name="android:colorBackground">@color/white</item>
     </style>
 
@@ -42,8 +51,17 @@
         <!--  Navigation bar color. -->
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowLightNavigationBar">false</item>
+
         <item name="android:navigationBarColor" tools:targetApi="l">@color/color_353535</item>
         <item name="android:navigationBarDividerColor">@color/color_353535</item>
+
+        <!-- 想要 BottomSheetDialog 自带的 E2E 生效，需要使 navigationBarColor 为透明或半透明-->
+        <!--        <item name="android:navigationBarColor" tools:targetApi="l">@android:color/transparent-->
+        <!--        </item>-->
+        <!--        <item name="android:navigationBarDividerColor">@android:color/transparent</item>-->
+        <!--        <item name="enableEdgeToEdge">true</item>-->
+        <!--        <item name="paddingTopSystemWindowInsets">true</item>-->
+
         <item name="android:colorBackground">@color/color_353535</item>
     </style>
 

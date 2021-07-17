@@ -19,4 +19,7 @@
     <string name="theme_preference_option_light">Light</string>
     <string name="theme_preference_option_dark">Dark</string>
     <string name="theme_preference_description">Theme</string>
+    <string name="fullscreen_preference_description">Fullscreen Mode</string>
+    <string name="fullscreen_preference_option_close">Close</string>
+    <string name="fullscreen_preference_option_open">Open</string>
 </resources>

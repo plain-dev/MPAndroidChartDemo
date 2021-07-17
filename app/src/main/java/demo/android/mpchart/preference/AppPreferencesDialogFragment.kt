@@ -18,10 +18,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.button.MaterialButtonToggleGroup
 import demo.android.mpchart.ChartApp
 import demo.android.mpchart.R
-import demo.android.mpchart.util.getWindowHeight
-import demo.android.mpchart.util.px
-import demo.android.mpchart.util.toDrawableByRes
-import demo.android.mpchart.util.toStringByRes
+import demo.android.mpchart.util.*
 import demo.android.mpchart.windowpreferences.WindowPreferencesManager
 
 class AppPreferencesDialogFragment : BottomSheetDialogFragment() {
@@ -56,6 +53,8 @@ class AppPreferencesDialogFragment : BottomSheetDialogFragment() {
             container.addView(createPreferenceView(layoutInflater, container, appPreference))
         }
         (dialog as? BottomSheetDialog)?.window?.let {
+            // ⚠ 要使用 BottomSheetDialog 自带的 E2E 这里可以关闭了
+            // 但是就不受 Fullscreen 开关的控制了
             WindowPreferencesManager(context).applyEdgeToEdgePreference(it)
         }
 
@@ -71,6 +70,12 @@ class AppPreferencesDialogFragment : BottomSheetDialogFragment() {
         ) { v, insets ->
             windowInsets = insets
             setBottomSheetHeight(v)
+            // 🐛 修复弹窗重建时顶部状态栏颜色和容器边距计算无效问题
+            // 解决方法: 通过反射手动调用 `BottomSheetDialog.EdgeToEdgeCallback.setPaddingForPosition`
+            // 来源: https://github.com/material-components/material-components-android/issues/2165
+            (dialog as? BottomSheetDialog)?.let {
+                adjustBottomSheet(it)
+            }
             insets
         }
         return container

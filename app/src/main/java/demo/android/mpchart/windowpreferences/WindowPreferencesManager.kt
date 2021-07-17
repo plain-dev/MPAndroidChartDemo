@@ -7,7 +7,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
-import android.view.View
 import android.view.Window
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.ColorUtils
@@ -15,7 +14,7 @@ import com.google.android.material.color.MaterialColors
 import com.google.android.material.color.MaterialColors.isColorLight
 import android.graphics.Color
 import android.graphics.Color.TRANSPARENT
-import android.view.View.*
+import android.view.View
 
 class WindowPreferencesManager(private val context: Context?) {
 
@@ -29,22 +28,26 @@ class WindowPreferencesManager(private val context: Context?) {
         private val EDGE_TO_EDGE_FLAGS: Int =
             View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 
-    }
-
-    fun toggleEdgeToEdgeEnabled() {
-        if (context != null) {
-            getSharedPreferences(context)
-                .edit()
-                .putBoolean(KEY_EDGE_TO_EDGE_ENABLED, !isEdgeToEdgeEnabled())
-                .apply()
+        fun toggleEdgeToEdgeEnabled(context: Context?, enabled: Boolean) {
+            if (context != null) {
+                getSharedPreferences(context)
+                    .edit()
+                    .putBoolean(KEY_EDGE_TO_EDGE_ENABLED, enabled)
+                    .apply()
+            }
         }
-    }
 
-    fun isEdgeToEdgeEnabled(): Boolean {
-        if (context != null) {
-            return getSharedPreferences(context).getBoolean(KEY_EDGE_TO_EDGE_ENABLED, true)
+        fun isEdgeToEdgeEnabled(context: Context?): Boolean {
+            if (context != null) {
+                return getSharedPreferences(context).getBoolean(KEY_EDGE_TO_EDGE_ENABLED, false)
+            }
+            return false
         }
-        return false
+
+        private fun getSharedPreferences(context: Context): SharedPreferences {
+            return context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
+        }
+
     }
 
     fun applyEdgeToEdgePreference(window: Window) {
@@ -52,9 +55,9 @@ class WindowPreferencesManager(private val context: Context?) {
             return
         }
         if (context != null) {
-            val edgeToEdgeEnabled = isEdgeToEdgeEnabled()
-            val statusBarColor = getStatusBarColor(context, isEdgeToEdgeEnabled())
-            val navbarColor = getNavBarColor(context, isEdgeToEdgeEnabled())
+            val edgeToEdgeEnabled = isEdgeToEdgeEnabled(context)
+            val statusBarColor = getStatusBarColor(context, isEdgeToEdgeEnabled(context))
+            val navbarColor = getNavBarColor(context, isEdgeToEdgeEnabled(context))
             val lightBackground = isColorLight(
                 MaterialColors.getColor(context, android.R.attr.colorBackground, Color.BLACK)
             )
@@ -62,12 +65,12 @@ class WindowPreferencesManager(private val context: Context?) {
             val showDarkNavbarIcons = lightNavbar || navbarColor == TRANSPARENT && lightBackground
             val decorView: View = window.decorView
             val currentStatusBar = if (VERSION.SDK_INT >= VERSION_CODES.M) {
-                decorView.systemUiVisibility and SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             } else {
                 0
             }
             val currentNavBar = if (showDarkNavbarIcons && VERSION.SDK_INT >= VERSION_CODES.O) {
-                SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+                View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
             } else {
                 0
             }
@@ -76,7 +79,7 @@ class WindowPreferencesManager(private val context: Context?) {
             val edgeToEdgeFlag = if (edgeToEdgeEnabled) {
                 EDGE_TO_EDGE_FLAGS
             } else {
-                SYSTEM_UI_FLAG_VISIBLE
+                View.SYSTEM_UI_FLAG_VISIBLE
             }
             val systemUiVisibility = edgeToEdgeFlag or currentStatusBar or currentNavBar
             decorView.systemUiVisibility = systemUiVisibility
@@ -123,10 +126,6 @@ class WindowPreferencesManager(private val context: Context?) {
                 Color.BLACK
             )
         }
-    }
-
-    private fun getSharedPreferences(context: Context): SharedPreferences {
-        return context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
     }
 
 }

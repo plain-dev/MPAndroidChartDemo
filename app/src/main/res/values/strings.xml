@@ -19,4 +19,7 @@
     <string name="theme_preference_option_light">亮</string>
     <string name="theme_preference_option_dark">暗</string>
     <string name="theme_preference_description">主题</string>
+    <string name="fullscreen_preference_description">全屏模式</string>
+    <string name="fullscreen_preference_option_close">关闭全屏</string>
+    <string name="fullscreen_preference_option_open">开启全屏</string>
 </resources>
