@@ -1,17 +1,15 @@
 package demo.android.mpchart
 
 import android.content.Intent
-import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.Toolbar
 import com.google.android.material.button.MaterialButton
 import demo.android.mpchart.base.BaseActivity
 import demo.android.mpchart.bigdecimal.BigDecimalChartActivity
 
-class MainActivity : BaseActivity(), View.OnClickListener {
+class MainActivity : BaseActivity(R.layout.activity_main), View.OnClickListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun initial() {
         findViewById<MaterialButton>(R.id.btnStartBigDecimalChart).setOnClickListener(this)
     }
 
@@ -23,5 +21,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
         }
     }
+
+    override fun getToolbar(): Toolbar = findViewById(R.id.toolbar)
 
 }

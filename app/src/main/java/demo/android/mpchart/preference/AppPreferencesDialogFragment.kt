@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.Px
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -21,6 +22,7 @@ import demo.android.mpchart.util.getWindowHeight
 import demo.android.mpchart.util.px
 import demo.android.mpchart.util.toDrawableByRes
 import demo.android.mpchart.util.toStringByRes
+import demo.android.mpchart.windowpreferences.WindowPreferencesManager
 
 class AppPreferencesDialogFragment : BottomSheetDialogFragment() {
 
@@ -30,13 +32,15 @@ class AppPreferencesDialogFragment : BottomSheetDialogFragment() {
 
     private val buttonIdToOptionId = SparseIntArray()
 
+    private var windowInsets: WindowInsetsCompat? = null
+
     override fun onStart() {
         super.onStart()
         (dialog as? BottomSheetDialog)?.let { d ->
             setBottomSheetNormal(dialog = d)
         }
         view?.let { v ->
-            setBottomSheetHeight(view = v, fullScreen = true)
+            setBottomSheetHeight(view = v)
         }
     }
 
@@ -50,6 +54,24 @@ class AppPreferencesDialogFragment : BottomSheetDialogFragment() {
         ) as LinearLayout
         for (appPreference: AppPreference in preferences.getPreferences()) {
             container.addView(createPreferenceView(layoutInflater, container, appPreference))
+        }
+        (dialog as? BottomSheetDialog)?.window?.let {
+            WindowPreferencesManager(context).applyEdgeToEdgePreference(it)
+        }
+
+        /*
+        -------------------------------------------------
+
+                视图重建后，需要重新计算一些额外空间
+
+        -------------------------------------------------
+         */
+        ViewCompat.setOnApplyWindowInsetsListener(
+            container
+        ) { v, insets ->
+            windowInsets = insets
+            setBottomSheetHeight(v)
+            insets
         }
         return container
     }
@@ -141,13 +163,13 @@ class AppPreferencesDialogFragment : BottomSheetDialogFragment() {
         }
     }
 
-    private fun setBottomSheetHeight(view: View, fullScreen: Boolean) {
+    private fun setBottomSheetHeight(view: View, fullScreen: Boolean = true) {
         val modalBottomSheetChildView: LinearLayout = view.findViewById(R.id.llDrawer)
         val layoutParams = modalBottomSheetChildView.layoutParams
         val behavior = (dialog as BottomSheetDialog).behavior
         var fitToContents = true
         var halfExpandedRatio = 0.5f
-        val windowHeight = getWindowHeight(context as Activity)
+        val windowHeight = getWindowHeight(context as Activity, windowInsets)
         if (layoutParams != null) {
             if (fullScreen) {
                 layoutParams.height = windowHeight

@@ -4,7 +4,7 @@
     <!--
             ☀ [BottomSheetDialog] 自定义样式
      -->
-    <style name="Theme.MaterialComponents.Light.BottomSheetDialog.Expanded" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+    <style name="Theme.MaterialComponents.Light.BottomSheetDialog.Expanded" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal.Expanded
         </item>
 
@@ -27,7 +27,7 @@
     <!--
             🌙 [BottomSheetDialog] 自定义样式
     -->
-    <style name="Theme.MaterialComponents.BottomSheetDialog.Expanded" parent="Theme.MaterialComponents.BottomSheetDialog">
+    <style name="Theme.MaterialComponents.BottomSheetDialog.Expanded" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal.Expanded
         </item>
 
@@ -108,5 +108,9 @@
     <style name="ThemeOverlay.App.Button.Night" parent="">
         <item name="colorPrimary">@color/purple_200</item>
         <item name="colorOnPrimary">@color/black</item>
+    </style>
+
+    <style name="ThemeOverlay.Appbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="titleTextColor">?attr/colorOnPrimarySurface</item>
     </style>
 </resources>

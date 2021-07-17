@@ -1,8 +1,8 @@
 package demo.android.mpchart.bigdecimal
 
 import android.graphics.Typeface
-import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
@@ -18,7 +18,7 @@ import demo.android.mpchart.util.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class BigDecimalChartActivity : BaseActivity() {
+class BigDecimalChartActivity : BaseActivity(R.layout.activity_big_decimal_chart) {
 
     private val labelTextColor by lazy {
         R.attr.chartLabelColor.toColorByThemeAttr(this)
@@ -34,13 +34,7 @@ class BigDecimalChartActivity : BaseActivity() {
 
     private var firstValue: Long = 0L
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_big_decimal_chart)
-        init()
-    }
-
-    private fun init() {
+    override fun initial() {
         lineChart = findViewById(R.id.lineChart)
         tvDataInfo = findViewById(R.id.tvDataInfo)
         title = R.string.big_decimal_chart_title.toStringByRes()
@@ -48,6 +42,10 @@ class BigDecimalChartActivity : BaseActivity() {
         showChart(lineChart)
         showDataInfo(tvDataInfo)
     }
+
+    override fun getToolbar(): Toolbar = findViewById(R.id.toolbar)
+
+    override fun isBack() = true
 
     private fun setChartBaseStyle(lineChart: LineChart) = lineChart.apply {
         // Use default.

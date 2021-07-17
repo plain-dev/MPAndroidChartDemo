@@ -2,7 +2,7 @@
     <!--
             ☀ [Theme] App 全局主题
      -->
-    <style name="Theme.MPChartDemo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.MPChartDemo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
         <!--
                 [ThemeOverlay] 覆写默认颜色
@@ -30,6 +30,10 @@
         <!--
             [Attributes] 自定义属性
         -->
+
+        <item name="android:colorBackground">@color/color_F5F7FB</item>
+
+        <item name="toolbarStyle">@style/ThemeOverlay.Appbar</item>
 
         <!-- 荧光笔颜色 -->
         <item name="fluorescenceColor">@color/text_bottom_fluorescence_color_1</item>
