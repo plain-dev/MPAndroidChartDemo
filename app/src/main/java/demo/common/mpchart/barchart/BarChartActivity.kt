@@ -16,6 +16,7 @@ import demo.common.mpchart.R
 import demo.common.mpchart.base.BaseActivity
 import demo.common.mpchart.entity.ChartData
 import demo.common.mpchart.marker.NormalMarkerView
+import demo.common.mpchart.util.ANIMATE_DURATION_MILLIS
 
 class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
 
@@ -119,7 +120,8 @@ class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
             barChart.setDrawMarkers(true)
             barChart.marker = markerView
 
-            barChart.invalidate()
+            //barChart.invalidate()
+            barChart.animateXY(ANIMATE_DURATION_MILLIS, ANIMATE_DURATION_MILLIS)
         }
     }
 
@@ -168,7 +170,8 @@ class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
             rangeChart.setDrawMarkers(true)
             rangeChart.marker = markerView
 
-            rangeChart.invalidate()
+            //rangeChart.invalidate()
+            rangeChart.animateXY(ANIMATE_DURATION_MILLIS, ANIMATE_DURATION_MILLIS)
         }
     }
 

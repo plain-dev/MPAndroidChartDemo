@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import demo.common.mpchart.R
 import demo.common.preference.dialog.AppPreferencesDialogFragment
+import demo.common.preference.window.WindowPreferencesManager
 
 abstract class BaseActivity : AppCompatActivity {
 
@@ -43,7 +44,7 @@ abstract class BaseActivity : AppCompatActivity {
                 }
             }
         }
-        demo.common.preference.window.WindowPreferencesManager(this).applyEdgeToEdgePreference(window)
+        WindowPreferencesManager(this).applyEdgeToEdgePreference(window)
         initial()
     }
 

@@ -2,6 +2,8 @@
 
 package demo.common.mpchart.util
 
+const val ANIMATE_DURATION_MILLIS = 600
+
 /**
  * 还原真实时间戳
  *

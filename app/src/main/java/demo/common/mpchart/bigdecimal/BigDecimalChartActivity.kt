@@ -18,6 +18,7 @@ import demo.common.mpchart.R
 import demo.common.mpchart.entity.ChartData
 import demo.common.mpchart.formatter.TimestampValueFormat
 import demo.common.mpchart.marker.BigDecimalMarkerView
+import demo.common.mpchart.util.ANIMATE_DURATION_MILLIS
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -145,7 +146,8 @@ class BigDecimalChartActivity : BaseActivity(R.layout.activity_big_decimal_chart
             lineChart.setDrawMarkers(true)
             lineChart.marker = markerView
 
-            lineChart.invalidate()
+            //lineChart.invalidate()
+            lineChart.animateXY(ANIMATE_DURATION_MILLIS, ANIMATE_DURATION_MILLIS)
         }
     }
 
