@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="demo.android.mpchart">
+    package="demo.common.mpchart">
 
     <application
         android:name=".ChartApp"
@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MPChartDemo"
         tools:ignore="AllowBackup">
-        <activity
-            android:name=".barchart.BarChartActivity"
-            android:exported="true" />
         <activity
             android:name=".splash.SplashScreenActivity"
             android:exported="true"
@@ -30,6 +27,9 @@
             android:exported="true" />
         <activity
             android:name=".bigdecimal.BigDecimalChartActivity"
+            android:exported="true" />
+        <activity
+            android:name=".barchart.BarChartActivity"
             android:exported="true" />
     </application>
 

@@ -13,16 +13,6 @@
     <string name="raw_data">Raw Data</string>
     <string name="chart_no_data">📈 No chart data available.</string>
 
-    <string name="preference_screen_title">Preferences</string>
-    <string name="theme_preference_option_system_default">Auto</string>
-    <string name="theme_preference_option_battery_saver">Battery Saver</string>
-    <string name="theme_preference_option_light">Light</string>
-    <string name="theme_preference_option_dark">Dark</string>
-    <string name="theme_preference_description">Theme</string>
-    <string name="fullscreen_preference_description">Fullscreen Mode</string>
-    <string name="fullscreen_preference_option_close">Close</string>
-    <string name="fullscreen_preference_option_open">Open</string>
-
     <string name="start_bar_chart">BarChart Demo</string>
     <string name="bar_chart_title">BarChart Demo</string>
     <string name="bar_chart_rounded">BarChart (Rounded)</string>

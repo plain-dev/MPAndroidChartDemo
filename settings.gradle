@@ -9,3 +9,5 @@ dependencyResolutionManagement {
 rootProject.name = "MPChartDemo"
 include ':app'
 include ':mp-chart-expansion'
+include ':common-preference'
+include ':common-util'

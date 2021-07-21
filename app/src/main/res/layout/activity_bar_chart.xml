@@ -52,7 +52,7 @@
 
             </FrameLayout>
 
-            <demo.android.charting.expansion.charts.RoundedBarChart
+            <demo.common.charting.expansion.charts.RoundedBarChart
                 android:id="@+id/barChart"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -82,7 +82,7 @@
 
             </FrameLayout>
 
-            <demo.android.charting.expansion.charts.RangeChart
+            <demo.common.charting.expansion.charts.RangeChart
                 android:id="@+id/rangeChart"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
