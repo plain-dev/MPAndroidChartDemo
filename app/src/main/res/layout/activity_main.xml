@@ -33,7 +33,16 @@
                 android:id="@+id/btnStartBigDecimalChart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/start_big_decimal_chart" />
+                android:text="@string/start_big_decimal_chart"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStartBarChart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/start_bar_chart"
+                android:textAllCaps="false" />
 
         </LinearLayout>
 

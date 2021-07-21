@@ -6,9 +6,9 @@
     <string name="time_format">HH:mm</string>
     <string name="little_date_format">MM-dd HH:mm</string>
 
-    <string name="start_big_decimal_chart">Start Big Decimal Chart</string>
+    <string name="start_big_decimal_chart">Big Decimal LineChart Demo</string>
 
-    <string name="big_decimal_chart_title">Big Decimal Chart Demo</string>
+    <string name="big_decimal_chart_title">Big Decimal LineChart Demo</string>
     <string name="time_to_fall_asleep">TIME TO FALL ASLEEP</string>
     <string name="raw_data">Raw Data</string>
     <string name="chart_no_data">📈 No chart data available.</string>
@@ -22,4 +22,9 @@
     <string name="fullscreen_preference_description">Fullscreen Mode</string>
     <string name="fullscreen_preference_option_close">Close</string>
     <string name="fullscreen_preference_option_open">Open</string>
+
+    <string name="start_bar_chart">BarChart Demo</string>
+    <string name="bar_chart_title">BarChart Demo</string>
+    <string name="bar_chart_rounded">BarChart (Rounded)</string>
+    <string name="bar_chart_range">BarChart (Range)</string>
 </resources>

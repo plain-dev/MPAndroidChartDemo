@@ -1,5 +1,3 @@
-@file:Suppress("ViewConstructor")
-
 package demo.android.mpchart.marker
 
 import android.content.Context
@@ -10,26 +8,12 @@ import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.utils.MPPointF
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.shape.CornerFamily
+import demo.android.charting.expansion.data.RangeEntry
 import demo.android.mpchart.R
 import demo.android.mpchart.util.px
-import demo.android.mpchart.util.toRealTimestamp
-import demo.android.mpchart.util.toStringByRes
-import java.text.SimpleDateFormat
 import java.util.*
 
-class BigDecimalMarkerView(
-    context: Context,
-    dateFormatStr: String = R.string.full_date_format.toStringByRes()
-) : MarkerView(
-    context,
-    R.layout.layout_big_decimal_marker
-) {
-
-    private val dateFormat by lazy {
-        SimpleDateFormat(dateFormatStr, Locale.CHINA)
-    }
-
-    var firstValue: Long = 0L
+class NormalMarkerView(context: Context) : MarkerView(context, R.layout.layout_normal_marker) {
 
     private var tvContent: TextView = findViewById(R.id.tvContent)
     private var cardView: MaterialCardView = findViewById(R.id.cardView)
@@ -45,10 +29,19 @@ class BigDecimalMarkerView(
     }
 
     override fun refreshContent(entry: Entry, highlight: Highlight) {
-        val realTimestamp =
-            (entry.y.toLong() + firstValue).toRealTimestamp(entry.x.toInt())
+        val str = StringBuilder()
+        if (entry is RangeEntry) {
+            val y = entry.y
+            val y2 = entry.y2
+            str.append(y)
+            str.append("/")
+            str.append(y2)
+        } else {
+            val y = entry.y
+            str.append(y)
+        }
 
-        tvContent.text = dateFormat.format(Date(realTimestamp))
+        tvContent.text = str.toString()
 
         super.refreshContent(entry, highlight)
     }

@@ -18,7 +18,7 @@
 
 |☀|🌙|
 |:-:|:-:|
-|![Light](./assets/preview/big_decimal_chart_preview_light.png)|![Dark](./assets/preview/big_decimal_chart_preview_dark.png)|
+|![Light](./assets/preview/big_decimal_chart_light_preview.png)|![Dark](./assets/preview/big_decimal_chart_dark_preview.png)|
 
 ***Simple Data***, take ***timestamp*** as an example
 
@@ -39,3 +39,15 @@ X: 06-19 Y: 1623500522000
 ```
 
 [***> Browse Code***](./app/src/main/java/demo/android/mpchart/bigdecimal/BigDecimalChartActivity.kt)
+
+## BarChart
+
+***Preview***
+
+|☀ ***BarChart (Rounded)***|🌙 ***BarChart (Rounded)***|
+|:-:|:-:|
+|![Light](./assets/preview/bar_chart_rounded_light_preview.png)|![Dark](./assets/preview/bar_chart_rounded_dark_preview.png)|
+|☀ ***BarChart (Range)***|🌙 ***BarChart (Range)***|
+|![Light](./assets/preview/bar_chart_range_light_preview.png)|![Dark](./assets/preview/bar_chart_range_dark_preview.png)|
+
+[***> Browse Code***](./app/src/main/java/demo/android/mpchart/barchart/BarChartActivity.kt)

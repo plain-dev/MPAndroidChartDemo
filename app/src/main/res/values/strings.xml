@@ -6,9 +6,8 @@
     <string name="time_format">HH:mm</string>
     <string name="little_date_format">MM月dd日 HH:mm</string>
 
-    <string name="start_big_decimal_chart">打开「大数据」图表案例页面</string>
-
-    <string name="big_decimal_chart_title">「大数据」图表案例</string>
+    <string name="start_big_decimal_chart">大数据折线图案例</string>
+    <string name="big_decimal_chart_title">大数据折线图案例</string>
     <string name="time_to_fall_asleep">入睡时间</string>
     <string name="raw_data">原始数据</string>
     <string name="chart_no_data">📈 图表数据为空。</string>
@@ -22,4 +21,10 @@
     <string name="fullscreen_preference_description">全屏模式</string>
     <string name="fullscreen_preference_option_close">关闭全屏</string>
     <string name="fullscreen_preference_option_open">开启全屏</string>
+
+    <string name="start_bar_chart">柱状图案例</string>
+    <string name="bar_chart_title">柱状图案例</string>
+    <string name="bar_chart_rounded">柱状图（圆角）</string>
+    <string name="bar_chart_range">柱状图（范围）</string>
+
 </resources>

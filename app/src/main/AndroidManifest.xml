@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MPChartDemo"
         tools:ignore="AllowBackup">
-
+        <activity
+            android:name=".barchart.BarChartActivity"
+            android:exported="true" />
         <activity
             android:name=".splash.SplashScreenActivity"
             android:exported="true"
@@ -23,15 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="true" />
-
         <activity
             android:name=".bigdecimal.BigDecimalChartActivity"
             android:exported="true" />
-
     </application>
 
 </manifest>
