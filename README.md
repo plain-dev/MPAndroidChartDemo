@@ -1,20 +1,22 @@
 <p align="center">
- <!-- <img width="200px" src="./assets/icon.svg" align="center" alt="AwesomeAndroidDemo" /> -->
+ <img width="200px" src="./assets/icon.svg" align="center" alt="MPAndroidChart Demo" />
  <h2 align="center"><em><strong>MPAndroidChart Demo</strong></em></h2>
- <p align="center"><em><strong>TODO.</strong></em></p>
+ <p align="center"><em><strong>MPAndroidChart library content demonstration and implementation of big decimal charts, rounded charts and range charts</strong></em></p>
+ <p align="center"><a href="https://github.com/PhilJay/MPAndroidChart"><em><strong>&gt; Browse MPAndroidChart Library</strong></em></a></p>
+ <img src="./assets/line.svg" align="center" />
 </p>
 
-[***> Browse MPAndroidChart Library***](https://github.com/PhilJay/MPAndroidChart)
-
-## Big Decimal
+## Use Big Decimal Data 💭
 
 [***> Browse Issue***](https://github.com/PhilJay/MPAndroidChart/issues/2891)
+
+***IDEA*** 💡
 
 > Unfortunately, floats aren't good for handling large numbers. Once they get too far up there they'll start losing precision. Tragically, floats are all MPAndroidChart knows.
 >
 > Assuming your big numbers are all in the same ballpark as each other (it looks like you're using dates so I would assume so), you can work around this. When you get your first value, store it somewhere, and subtract it from every entry value as you add them. So numbers like 16314195, 16315200, 16316191 are stored as 0, 1005, 1996, and then convert them to a float. Then in a ValueFormatter for your axis, take that stored value, convert it back to the proper type, and add the stored value back in to get the original value, without loss of precision.
 
-***Preview***
+***Preview*** 🎞
 
 |☀|🌙|
 |:-:|:-:|
@@ -40,9 +42,9 @@ X: 06-19 Y: 1623500522000
 
 [***> Browse Code***](./app/src/main/java/demo/android/mpchart/bigdecimal/BigDecimalChartActivity.kt)
 
-## BarChart
+## Implement Rounded Chart & Range Chart ⚗
 
-***Preview***
+***Preview*** 🎞
 
 |☀ ***BarChart (Rounded)***|🌙 ***BarChart (Rounded)***|
 |:-:|:-:|
