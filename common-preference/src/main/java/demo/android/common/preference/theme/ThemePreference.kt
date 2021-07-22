@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.SparseIntArray
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.common.collect.ImmutableList
-import demo.common.preference.R
+import demo.android.common.preference.R
 import demo.android.common.preference.base.AppPreference
 import demo.android.common.preference.data.Option
 

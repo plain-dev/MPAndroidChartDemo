@@ -5,7 +5,7 @@ import android.util.SparseBooleanArray
 import com.google.common.collect.ImmutableList
 import demo.android.common.preference.base.AppPreference
 import demo.android.common.preference.data.Option
-import demo.common.preference.R
+import demo.android.common.preference.R
 import demo.android.common.preference.window.WindowPreferencesManager
 
 class FullscreenPreference : AppPreference(R.string.fullscreen_preference_description) {

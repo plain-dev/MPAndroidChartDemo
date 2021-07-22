@@ -20,7 +20,7 @@ import demo.android.common.util.*
 import demo.android.common.preference.base.AppPreference
 import demo.android.common.preference.base.AppPreferences
 import demo.android.common.preference.data.Option
-import demo.common.preference.R
+import demo.android.common.preference.R
 import demo.android.common.preference.window.WindowPreferencesManager
 
 class AppPreferencesDialogFragment : BottomSheetDialogFragment() {
