@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.highlight.BarHighlighter
-import com.github.mikephil.charting.renderer.BarChartRenderer
 import demo.common.charting.expansion.renderer.BarChartRendererWrapper
 import demo.common.charting.expansion.renderer.RoundedBarChartRenderer
 import demo.common.charting.expansion.type.Bar
@@ -16,26 +15,27 @@ open class RoundedBarChart @JvmOverloads constructor(
     defStyle: Int = 0
 ) : BarChart(context, attrs, defStyle) {
 
-    var isRoundedBar: Boolean = true
+    var isRoundedBar: Boolean = false
         set(value) {
             field = value
             if (mRenderer != null) {
-                mRenderer = changeRenderer(value)
-                invalidate()
+                mRenderer = getBarChartRenderer(value)
             }
         }
 
-    private fun changeRenderer(rounderBar: Boolean): BarChartRenderer {
-        return if (rounderBar) {
-            RoundedBarChartRenderer(this, mAnimator, mViewPortHandler, getBarBufferType())
-        } else {
-            BarChartRendererWrapper(this, mAnimator, mViewPortHandler, getBarBufferType())
-        }
+    private fun getBarChartRenderer(roundedBar: Boolean) = if (roundedBar) {
+        // Rounded Rectangle
+        RoundedBarChartRenderer(this, mAnimator, mViewPortHandler, getBarBufferType())
+    } else {
+        // Right-angled rectangle
+        BarChartRendererWrapper(this, mAnimator, mViewPortHandler, getBarBufferType())
     }
 
     override fun init() {
+        // default `true`
+        isRoundedBar = true
         super.init()
-        mRenderer = changeRenderer(true)
+        mRenderer = getBarChartRenderer(isRoundedBar)
         setHighlighter(BarHighlighter(this))
         xAxis.spaceMin = 0.5f
         xAxis.spaceMax = 0.5f

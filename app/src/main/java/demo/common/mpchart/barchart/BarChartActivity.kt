@@ -41,7 +41,7 @@ class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
 
     override fun isBack() = true
 
-    private fun setChartBaseStyle(barChart: BarChart) = barChart.apply {
+    private fun setChartBaseStyle(barChart: RoundedBarChart) = barChart.apply {
         // Use default.
 
         setScaleEnabled(false)
@@ -80,6 +80,7 @@ class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
             yOffset = 5f.px
         }
 
+        //isRoundedBar = false
     }
 
     private fun showChart(barChart: BarChart) {

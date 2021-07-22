@@ -161,7 +161,6 @@ class RoundedBarChartRenderer(
                     buffer.buffer[j + 1],
                     buffer.buffer[j + 2]
             ] = buffer.buffer[j + 3]
-            Log.d("RectF", "Bar ===>> $mTempRectF")
             val radius = (buffer.buffer[j + 2] - buffer.buffer[j]) / 2
             when (barBufferType) {
                 Range -> {
@@ -222,8 +221,6 @@ class RoundedBarChartRenderer(
             }
             prepareBarHighlight(e.x, y1, y2, barData.barWidth / 2f, trans)
             setHighlightDrawPos(high, mBarRect)
-
-            Log.d("RectF", "Highlight ===>> $mBarRect")
 
             /*
             ------------------------------------
