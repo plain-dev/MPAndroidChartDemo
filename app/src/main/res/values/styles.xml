@@ -131,4 +131,60 @@
     <style name="ThemeOverlay.Appbar" parent="Widget.MaterialComponents.Toolbar">
         <item name="titleTextColor">?attr/colorOnPrimarySurface</item>
     </style>
+
+    <!--
+            ☀ [CollapsingToolbarLayout] 自定义样式
+
+            - `statusBarScrim`    折叠状态下状态栏颜色
+            - `contentScrim`      折叠状态下内容颜色
+    -->
+    <style name="Widget.Design.CollapsingToolbar.Light" parent="Widget.Design.CollapsingToolbar.Expanded">
+        <item name="statusBarScrim">?attr/colorPrimary</item>
+        <item name="contentScrim">?attr/colorPrimary</item>
+    </style>
+
+    <!--
+            🌙 [CollapsingToolbarLayout] 自定义样式
+
+            - `statusBarScrim`    折叠状态下状态栏颜色
+            - `contentScrim`      折叠状态下内容颜色
+    -->
+    <style name="Widget.Design.CollapsingToolbar.Night" parent="Widget.Design.CollapsingToolbar.Expanded">
+        <item name="statusBarScrim">?attr/colorSurface</item>
+        <item name="contentScrim">?attr/colorSurface</item>
+    </style>
+
+    <!--
+            [CollapsingToolbarLayout] 自定义样式
+
+            - `expandedTitleMarginStart`      展开状态下标题距离 Start 边距
+            - `expandedTitleMarginStart`      展开状态下标题距离 Bottom 边距
+            - `collapsedTitleTextAppearance`  折叠状态下标题文本样式
+            - `expandedTitleTextAppearance`   展开状态下标题文本样式
+    -->
+    <style name="Widget.Design.CollapsingToolbar.Expanded" parent="Widget.Design.CollapsingToolbar">
+        <item name="expandedTitleMarginStart">30dp</item>
+        <item name="expandedTitleMarginBottom">30dp</item>
+        <item name="collapsedTitleTextAppearance">
+            @style/TextAppearance.App.CollapsingToolbar.Collapsed
+        </item>
+        <item name="expandedTitleTextAppearance">
+            @style/TextAppearance.App.CollapsingToolbar.Expanded
+        </item>
+    </style>
+
+    <!--
+            展开状态下标题文本样式
+    -->
+    <style name="TextAppearance.App.CollapsingToolbar.Expanded" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <!--
+            折叠状态下标题文本样式
+    -->
+    <style name="TextAppearance.App.CollapsingToolbar.Collapsed" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>

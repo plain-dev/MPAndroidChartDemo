@@ -17,4 +17,5 @@
     <string name="bar_chart_rounded">柱状图（圆角）</string>
     <string name="bar_chart_range">柱状图（范围）</string>
 
+    <string name="unknown">未知</string>
 </resources>

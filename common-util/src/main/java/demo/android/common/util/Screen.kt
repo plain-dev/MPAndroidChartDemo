@@ -15,3 +15,7 @@ fun getWindowHeight(context: Activity, windowInsets: WindowInsetsCompat? = null)
     }
     return height
 }
+
+fun getDeviceWidth() = resource.displayMetrics.widthPixels
+
+fun getDeviceHeight() = resource.displayMetrics.heightPixels

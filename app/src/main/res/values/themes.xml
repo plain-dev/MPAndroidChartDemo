@@ -66,6 +66,13 @@
         <item name="bottomSheetDialogTheme">
             @style/Theme.MaterialComponents.Light.BottomSheetDialog.Expanded
         </item>
+
+        <!--
+            [CollapsingToolbarLayout] 覆写 `collapsingToolbarLayoutStyle`
+        -->
+        <item name="collapsingToolbarLayoutStyle">
+            @style/Widget.Design.CollapsingToolbar.Light
+        </item>
     </style>
 
     <!--

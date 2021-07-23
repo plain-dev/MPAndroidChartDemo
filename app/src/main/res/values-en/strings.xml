@@ -17,4 +17,6 @@
     <string name="bar_chart_title">BarChart Demo</string>
     <string name="bar_chart_rounded">BarChart (Rounded)</string>
     <string name="bar_chart_range">BarChart (Range)</string>
+
+    <string name="unknown">Unknown</string>
 </resources>
