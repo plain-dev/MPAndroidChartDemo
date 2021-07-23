@@ -177,14 +177,14 @@ class BigDecimalChartActivity : BaseActivity(R.layout.activity_big_decimal_chart
         // 归到同一天
         return mutableListOf<ChartData>().apply {
 
-            add(ChartData("1623521449", "06-12"))
-            add(ChartData("1623520427", "06-13"))
-            add(ChartData("1623510435", "06-14"))
-            add(ChartData("1623510725", "06-15"))
-            add(ChartData("1623509282", "06-16"))
-            add(ChartData("1623513979", "06-17"))
-            add(ChartData("1623519397", "06-18"))
-            add(ChartData("1623500522", "06-19"))
+            add(ChartData(yVal1 = "1623521449", xVal ="06-12"))
+            add(ChartData(yVal1 ="1623520427", xVal ="06-13"))
+            add(ChartData(yVal1 ="1623510435", xVal ="06-14"))
+            add(ChartData(yVal1 ="1623510725", xVal ="06-15"))
+            add(ChartData(yVal1 ="1623509282", xVal ="06-16"))
+            add(ChartData(yVal1 ="1623513979", xVal ="06-17"))
+            add(ChartData(yVal1 ="1623519397", xVal ="06-18"))
+            add(ChartData(yVal1 ="1623500522", xVal ="06-19"))
 
             //add(ChartData("1623509282", "06-12"))
             //add(ChartData("1623513979", "06-13"))

@@ -178,27 +178,27 @@ class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
 
     private fun getSimpleData(): MutableList<ChartData> {
         return mutableListOf<ChartData>().apply {
-            add(ChartData("10", "06-12"))
-            add(ChartData("20", "06-13"))
-            add(ChartData("20", "06-14"))
-            add(ChartData("30", "06-15"))
-            add(ChartData("60", "06-16"))
-            add(ChartData("80", "06-17"))
-            add(ChartData("101", "06-18"))
-            add(ChartData("202", "06-19"))
+            add(ChartData(yVal1 = "10", xVal = "06-12"))
+            add(ChartData(yVal1 = "13", xVal = "06-13"))
+            add(ChartData(yVal1 = "18", xVal = "06-14"))
+            add(ChartData(yVal1 = "30", xVal = "06-15"))
+            add(ChartData(yVal1 = "60", xVal = "06-16"))
+            add(ChartData(yVal1 = "80", xVal = "06-17"))
+            add(ChartData(yVal1 = "101", xVal = "06-18"))
+            add(ChartData(yVal1 = "202", xVal = "06-19"))
         }
     }
 
     private fun getSimpleDataByRange(): MutableList<ChartData> {
         return mutableListOf<ChartData>().apply {
-            add(ChartData("10", "-50", "06-12"))
-            add(ChartData("20", "-80", "06-13"))
-            add(ChartData("20", "-90", "06-14"))
-            add(ChartData("30", "-5", "06-15"))
-            add(ChartData("60", "6", "06-16"))
-            add(ChartData("80", "20", "06-17"))
-            add(ChartData("101", "30", "06-18"))
-            add(ChartData("202", "100", "06-19"))
+            add(ChartData(yVal1 = "10", yVal2 = "-50", xVal = "06-12"))
+            add(ChartData(yVal1 = "20", yVal2 = "-80", xVal = "06-13"))
+            add(ChartData(yVal1 = "20", yVal2 = "-90", xVal = "06-14"))
+            add(ChartData(yVal1 = "30", yVal2 = "-5", xVal = "06-15"))
+            add(ChartData(yVal1 = "60", yVal2 = "6", xVal = "06-16"))
+            add(ChartData(yVal1 = "80", yVal2 = "20", xVal = "06-17"))
+            add(ChartData(yVal1 = "101", yVal2 = "30", xVal = "06-18"))
+            add(ChartData(yVal1 = "202", yVal2 = "100", xVal = "06-19"))
         }
     }
 }
