@@ -2,7 +2,7 @@
     <!--
             🌙 [Theme] App 全局主题
      -->
-    <style name="Theme.MPChartDemo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.MPChartDemo" parent="Base.Theme.MPChartDemo">
 
         <!--
                 [ThemeOverlay] 覆写默认颜色
@@ -20,7 +20,7 @@
         <!--
                 覆写 colorSurface
 
-                - 改变 ActionBar 背景色，和 Status bar 颜色保持一致
+                - 改变 ActionBar 背景色
         -->
         <item name="colorSurface">?attr/colorOnPrimary</item>
 
@@ -38,6 +38,8 @@
         -->
 
         <item name="android:colorBackground">@color/color_2B2B2B</item>
+
+        <item name="colorBackgroundFloating">@color/color_353535</item>
 
         <item name="toolbarStyle">@style/ThemeOverlay.Appbar</item>
 
@@ -65,20 +67,6 @@
         <item name="header03TextColor">@color/white</item>
         <!-- 自定义正文颜色 -->
         <item name="bodyTextColor">@color/color_f3f3f3</item>
-
-        <!--
-            [BottomSheetDialog] 覆写 `bottomSheetDialogTheme`
-        -->
-        <item name="bottomSheetDialogTheme">
-            @style/Theme.MaterialComponents.BottomSheetDialog.Expanded
-        </item>
-
-        <!--
-            [CollapsingToolbarLayout] 覆写 `collapsingToolbarLayoutStyle`
-        -->
-        <item name="collapsingToolbarLayoutStyle">
-            @style/Widget.Design.CollapsingToolbar.Night
-        </item>
     </style>
 
     <!--
@@ -88,16 +76,7 @@
             - 去除 `windowActionBar` 和 `windowNoTitle`
             - 统一 `android:statusBarColor` 和 `android:navigationBarColor`
     -->
-    <style name="Theme.MPChartDemo.SplashScreen">
+    <style name="Theme.MPChartDemo.SplashScreen" parent="Base.Theme.MPChartDemo.SplashScreen">
         <item name="android:windowBackground">@color/color_2B2B2B</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">false</item>
-        <!-- Navigation bar color. -->
-        <item name="android:navigationBarColor" tools:targetApi="l">@android:color/transparent
-        </item>
-        <item name="android:windowLightNavigationBar">true</item>
     </style>
 </resources>

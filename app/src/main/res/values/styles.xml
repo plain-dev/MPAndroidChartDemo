@@ -1,82 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <!--
-            ☀ [BottomSheetDialog] 自定义样式
-     -->
-    <style name="Theme.MaterialComponents.Light.BottomSheetDialog.Expanded" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        [BottomSheetDialog] 自定义 Dialog 样式
+
+        - 使用 bottomSheetStyle 覆写默认样式，设置 `BottomSheet` 样式
+    -->
+    <style name="ThemeOverlay.MaterialComponents.BottomSheetDialog.Expanded" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal.Expanded
         </item>
-
-        <!-- 修改按钮 outline 颜色 -->
-        <!-- 方法一：直接覆写主题色 -->
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Light</item>
-        <!-- 方法二：自定义 materialButtonOutlinedStyle -->
-        <!--        <item name="materialButtonOutlinedStyle">-->
-        <!--            @style/Widget.MaterialComponents.Button.OutlinedButton.Light-->
-        <!--        </item>-->
-
-        <!-- Navigation bar color. -->
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowLightNavigationBar">true</item>
-
-        <item name="android:navigationBarColor" tools:targetApi="l">@color/white</item>
-        <item name="android:navigationBarDividerColor">@color/white</item>
-
-        <!--  想要 BottomSheetDialog 自带的 E2E 生效，需要使 navigationBarColor 为透明或半透明-->
-        <!--        <item name="android:navigationBarColor" tools:targetApi="l">@android:color/transparent-->
-        <!--        </item>-->
-        <!--        <item name="android:navigationBarDividerColor">@android:color/transparent</item>-->
-        <!--        <item name="enableEdgeToEdge">true</item>-->
-        <!--        <item name="paddingTopSystemWindowInsets">true</item>-->
-
-        <item name="android:colorBackground">@color/white</item>
     </style>
 
     <!--
-            🌙 [BottomSheetDialog] 自定义样式
-    -->
-    <style name="Theme.MaterialComponents.BottomSheetDialog.Expanded" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal.Expanded
-        </item>
-
-        <!-- 修改按钮 `outline` 颜色 -->
-        <!-- 方法一：直接覆写主题色 -->
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Night</item>
-        <!-- 方法二：自定义 materialButtonOutlinedStyle -->
-        <!--        <item name="materialButtonOutlinedStyle">-->
-        <!--            @style/Widget.MaterialComponents.Button.OutlinedButton.Night-->
-        <!--        </item>-->
-
-        <!--  Navigation bar color. -->
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowLightNavigationBar">false</item>
-
-        <item name="android:navigationBarColor" tools:targetApi="l">@color/color_353535</item>
-        <item name="android:navigationBarDividerColor">@color/color_353535</item>
-
-        <!-- 想要 BottomSheetDialog 自带的 E2E 生效，需要使 navigationBarColor 为透明或半透明-->
-        <!--        <item name="android:navigationBarColor" tools:targetApi="l">@android:color/transparent-->
-        <!--        </item>-->
-        <!--        <item name="android:navigationBarDividerColor">@android:color/transparent</item>-->
-        <!--        <item name="enableEdgeToEdge">true</item>-->
-        <!--        <item name="paddingTopSystemWindowInsets">true</item>-->
-
-        <item name="android:colorBackground">@color/color_353535</item>
-    </style>
-
-    <!--
-            自定义 BottomSheet Modal
+            [BottomSheetDialog] 自定义 BottomSheet Modal
 
             - 使用 shapeAppearanceOverlay 覆写默认样式，设置边角大小、边角样式（Cut or Rounded）
-            - 使用 `android:background` 和 `backgroundTint` 设置背景色（默认：?android:attr/colorBackground）
+            - 使用 `android:background` (默认: @null) 和 `backgroundTint` (默认：?attr/colorSurface) 设置背景色
      -->
     <style name="Widget.MaterialComponents.BottomSheet.Modal.Expanded" parent="Widget.MaterialComponents.BottomSheet.Modal">
         <item name="shapeAppearanceOverlay">
             @style/ShapeAppearance.MaterialComponents.BottomSheetDialog
         </item>
-        <item name="android:background">?android:attr/colorBackground</item>
-        <item name="backgroundTint">?android:attr/colorBackground</item>
+        <!--        <item name="android:background">@null</item>-->
+        <!--        <item name="backgroundTint">?attr/colorSurface</item>-->
     </style>
 
     <!--
@@ -90,68 +38,8 @@
         <item name="cornerSizeBottomRight">0dp</item>
     </style>
 
-    <!--    <style name="Widget.MaterialComponents.Button.Light" parent="Widget.MaterialComponents.Button">-->
-    <!--        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Light</item>-->
-    <!--    </style>-->
-
-    <!--    <style name="Widget.MaterialComponents.Button.Night" parent="Widget.MaterialComponents.Button">-->
-    <!--        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Night</item>-->
-    <!--    </style>-->
-
-    <!--    <style name="Widget.MaterialComponents.Button.OutlinedButton.Light" parent="Widget.MaterialComponents.Button.OutlinedButton">-->
-    <!--        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Light</item>-->
-    <!--    </style>-->
-
-    <!--    <style name="Widget.MaterialComponents.Button.OutlinedButton.Night" parent="Widget.MaterialComponents.Button.OutlinedButton">-->
-    <!--        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Night</item>-->
-    <!--    </style>-->
-
-    <!--
-            ☀ [Button] 覆写默认颜色
-
-            - `colorPrimary`    用作 background 或 stoke 颜色
-            - `colorOnPrimary`  用作 text 颜色
-    -->
-    <style name="ThemeOverlay.App.Button.Light" parent="">
-        <item name="colorPrimary">@color/yellow_500</item>
-        <item name="colorOnPrimary">@color/white</item>
-    </style>
-
-    <!--
-            🌙 [Button] 覆写默认颜色
-
-            - `colorPrimary`    用作 background 或 stoke 颜色
-            - `colorOnPrimary`  用作 text 颜色
-    -->
-    <style name="ThemeOverlay.App.Button.Night" parent="">
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorOnPrimary">@color/black</item>
-    </style>
-
     <style name="ThemeOverlay.Appbar" parent="Widget.MaterialComponents.Toolbar">
         <item name="titleTextColor">?attr/colorOnPrimarySurface</item>
-    </style>
-
-    <!--
-            ☀ [CollapsingToolbarLayout] 自定义样式
-
-            - `statusBarScrim`    折叠状态下状态栏颜色
-            - `contentScrim`      折叠状态下内容颜色
-    -->
-    <style name="Widget.Design.CollapsingToolbar.Light" parent="Widget.Design.CollapsingToolbar.Expanded">
-        <item name="statusBarScrim">?attr/colorPrimary</item>
-        <item name="contentScrim">?attr/colorPrimary</item>
-    </style>
-
-    <!--
-            🌙 [CollapsingToolbarLayout] 自定义样式
-
-            - `statusBarScrim`    折叠状态下状态栏颜色
-            - `contentScrim`      折叠状态下内容颜色
-    -->
-    <style name="Widget.Design.CollapsingToolbar.Night" parent="Widget.Design.CollapsingToolbar.Expanded">
-        <item name="statusBarScrim">?attr/colorSurface</item>
-        <item name="contentScrim">?attr/colorSurface</item>
     </style>
 
     <!--
@@ -163,6 +51,8 @@
             - `expandedTitleTextAppearance`   展开状态下标题文本样式
     -->
     <style name="Widget.Design.CollapsingToolbar.Expanded" parent="Widget.Design.CollapsingToolbar">
+        <item name="statusBarScrim">?attr/colorPrimarySurface</item>
+        <item name="contentScrim">?attr/colorPrimarySurface</item>
         <item name="expandedTitleMarginStart">30dp</item>
         <item name="expandedTitleMarginBottom">30dp</item>
         <item name="collapsedTitleTextAppearance">

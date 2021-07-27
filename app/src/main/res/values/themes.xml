@@ -2,7 +2,7 @@
     <!--
             ☀ [Theme] App 全局主题
      -->
-    <style name="Theme.MPChartDemo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.MPChartDemo" parent="Base.Theme.MPChartDemo">
 
         <!--
                 [ThemeOverlay] 覆写默认颜色
@@ -33,6 +33,8 @@
 
         <item name="android:colorBackground">@color/color_F5F7FB</item>
 
+        <item name="colorBackgroundFloating">@color/white</item>
+
         <item name="toolbarStyle">@style/ThemeOverlay.Appbar</item>
 
         <!-- 荧光笔颜色 -->
@@ -59,20 +61,27 @@
         <item name="header03TextColor">@color/black</item>
         <!-- 自定义正文颜色 -->
         <item name="bodyTextColor">@color/color_666666</item>
+    </style>
+
+    <style name="Base.Theme.MPChartDemo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!--
+            [CollapsingToolbarLayout] 覆写 `collapsingToolbarLayoutStyle`
+        -->
+        <item name="collapsingToolbarLayoutStyle">
+            @style/Widget.Design.CollapsingToolbar.Expanded
+        </item>
 
         <!--
             [BottomSheetDialog] 覆写 `bottomSheetDialogTheme`
         -->
         <item name="bottomSheetDialogTheme">
-            @style/Theme.MaterialComponents.Light.BottomSheetDialog.Expanded
+            @style/ThemeOverlay.MaterialComponents.BottomSheetDialog.Expanded
         </item>
 
         <!--
-            [CollapsingToolbarLayout] 覆写 `collapsingToolbarLayoutStyle`
+                适配刘海屏
         -->
-        <item name="collapsingToolbarLayoutStyle">
-            @style/Widget.Design.CollapsingToolbar.Light
-        </item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
     </style>
 
     <!--
@@ -82,15 +91,15 @@
             - 去除 `windowActionBar` 和 `windowNoTitle`
             - 统一 `android:statusBarColor` 和 `android:navigationBarColor`
     -->
-    <style name="Theme.MPChartDemo.SplashScreen">
+    <style name="Theme.MPChartDemo.SplashScreen" parent="Base.Theme.MPChartDemo.SplashScreen">
         <item name="android:windowBackground">@color/white</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Base.Theme.MPChartDemo.SplashScreen" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <!-- Navigation bar color. -->
+        <item name="android:windowLightStatusBar">?isLightTheme</item>
         <item name="android:navigationBarColor" tools:targetApi="l">@android:color/transparent
         </item>
-        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowLightNavigationBar">?isLightTheme</item>
     </style>
 </resources>
