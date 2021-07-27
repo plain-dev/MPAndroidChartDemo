@@ -2,11 +2,10 @@ package demo.android.mpchart
 
 import android.content.Intent
 import androidx.appcompat.widget.Toolbar
-import androidx.core.math.MathUtils
+import androidx.core.view.*
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import demo.android.common.util.dp
-import demo.android.common.util.getDeviceWidth
+import demo.android.common.util.calculateGridSpanCount
 import demo.android.common.util.px
 import demo.android.mpchart.barchart.BarChartActivity
 import demo.android.mpchart.base.BaseActivity
@@ -16,13 +15,6 @@ import demo.android.mpchart.toc.adapter.TocAdapter
 import demo.android.mpchart.toc.data.Toc
 
 class MainActivity : BaseActivity(R.layout.activity_main) {
-
-    companion object {
-
-        private const val GRID_SPAN_COUNT_MIN = 1
-        private const val GRID_SPAN_COUNT_MAX = 6
-
-    }
 
     private lateinit var rvToc: RecyclerView
 
@@ -61,35 +53,37 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         }
     }
 
-    private val gridSpacingItemDecoration by lazy(LazyThreadSafetyMode.NONE) {
-        GridSpacingItemDecoration(
-            spanCount = getSpanCount(),
-            spacing = 10f.px.toInt(),
-            includeEdge = true
-        )
-    }
-
     override fun initial() {
         rvToc = findViewById(R.id.rvToc)
         setList(rvToc)
+        handleWindowInsets()
+    }
+
+    private fun handleWindowInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(
+            rvToc
+        ) { v, insets ->
+            // Recommend this method
+            val navigationBarInsets = insets.getInsets(WindowInsetsCompat.Type.navigationBars())
+            v.updatePadding(bottom = navigationBarInsets.bottom)
+            insets
+        }
     }
 
     private fun setList(rvToc: RecyclerView) = with(rvToc) {
         layoutManager = GridLayoutManager(context, getSpanCount())
         adapter = tocAdapter
-        addItemDecoration(gridSpacingItemDecoration)
+        addItemDecoration(
+            GridSpacingItemDecoration(
+                spanCount = getSpanCount(),
+                spacing = 10f.px.toInt(),
+                includeEdge = true
+            )
+        )
     }
 
     override fun getToolbar(): Toolbar = findViewById(R.id.toolbar)
 
-    private fun getSpanCount(): Int {
-        return calculateGridSpanCount()
-    }
-
-    private fun calculateGridSpanCount() = MathUtils.clamp(
-        getDeviceWidth() / 150f.px.toInt(),
-        GRID_SPAN_COUNT_MIN,
-        GRID_SPAN_COUNT_MAX
-    )
+    private fun getSpanCount() = calculateGridSpanCount(itemSize = 150f.px.toInt())
 
 }

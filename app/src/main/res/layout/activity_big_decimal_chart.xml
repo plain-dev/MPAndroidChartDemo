@@ -24,8 +24,10 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
+            android:id="@+id/llContent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipToPadding="false"
             android:orientation="vertical">
 
             <FrameLayout
@@ -88,7 +90,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
                 android:lineSpacingExtra="10dp"
                 android:textColor="?attr/bodyTextColor"
                 android:textSize="16sp" />

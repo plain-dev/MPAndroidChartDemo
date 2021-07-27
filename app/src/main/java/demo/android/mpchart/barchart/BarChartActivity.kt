@@ -2,6 +2,9 @@ package demo.android.mpchart.barchart
 
 import android.graphics.Typeface
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.*
@@ -31,10 +34,22 @@ class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
         barChart = findViewById(R.id.barChart)
         rangeChart = findViewById(R.id.rangeChart)
         title = R.string.bar_chart_title.toStringByRes()
+        handleWindowInsets()
         setChartBaseStyle(barChart)
         setChartBaseStyle(rangeChart)
         showChart(barChart)
         showChartByRange(rangeChart)
+    }
+
+    private fun handleWindowInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(
+            findViewById(R.id.llContent)
+        ) { v, insets ->
+            // Recommend this method
+            val navigationBarInsets = insets.getInsets(WindowInsetsCompat.Type.navigationBars())
+            v.updatePadding(bottom = navigationBarInsets.bottom)
+            insets
+        }
     }
 
     override fun getToolbar(): Toolbar = findViewById(R.id.toolbar)
@@ -49,6 +64,8 @@ class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
         setNoDataText(R.string.chart_no_data.toStringByRes())
         setNoDataTextColor(R.attr.bodyTextColor.toColorByThemeAttr(this@BarChartActivity))
         setNoDataTextTypeface(Typeface.DEFAULT_BOLD)
+
+        extraBottomOffset = 10f
 
         // Boarders
         //setDrawBorders(true)

@@ -3,6 +3,9 @@ package demo.android.mpchart.bigdecimal
 import android.graphics.Typeface
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
@@ -42,9 +45,21 @@ class BigDecimalChartActivity : BaseActivity(R.layout.activity_big_decimal_chart
         lineChart = findViewById(R.id.lineChart)
         tvDataInfo = findViewById(R.id.tvDataInfo)
         title = R.string.big_decimal_chart_title.toStringByRes()
+        handleWindowInsets()
         setChartBaseStyle(lineChart)
         showChart(lineChart)
         showDataInfo(tvDataInfo)
+    }
+
+    private fun handleWindowInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(
+            findViewById(R.id.llContent)
+        ) { v, insets ->
+            // Recommend this method
+            val navigationBarInsets = insets.getInsets(WindowInsetsCompat.Type.navigationBars())
+            v.updatePadding(bottom = navigationBarInsets.bottom)
+            insets
+        }
     }
 
     override fun getToolbar(): Toolbar = findViewById(R.id.toolbar)
@@ -59,6 +74,8 @@ class BigDecimalChartActivity : BaseActivity(R.layout.activity_big_decimal_chart
         setNoDataText(R.string.chart_no_data.toStringByRes())
         setNoDataTextColor(R.attr.bodyTextColor.toColorByThemeAttr(this@BigDecimalChartActivity))
         setNoDataTextTypeface(Typeface.DEFAULT_BOLD)
+
+        extraBottomOffset = 10f
 
         // Boarders
         //setDrawBorders(true)
@@ -177,14 +194,14 @@ class BigDecimalChartActivity : BaseActivity(R.layout.activity_big_decimal_chart
         // 归到同一天
         return mutableListOf<ChartData>().apply {
 
-            add(ChartData(yVal1 = "1623521449", xVal ="06-12"))
-            add(ChartData(yVal1 ="1623520427", xVal ="06-13"))
-            add(ChartData(yVal1 ="1623510435", xVal ="06-14"))
-            add(ChartData(yVal1 ="1623510725", xVal ="06-15"))
-            add(ChartData(yVal1 ="1623509282", xVal ="06-16"))
-            add(ChartData(yVal1 ="1623513979", xVal ="06-17"))
-            add(ChartData(yVal1 ="1623519397", xVal ="06-18"))
-            add(ChartData(yVal1 ="1623500522", xVal ="06-19"))
+            add(ChartData(yVal1 = "1623521449", xVal = "06-12"))
+            add(ChartData(yVal1 = "1623520427", xVal = "06-13"))
+            add(ChartData(yVal1 = "1623510435", xVal = "06-14"))
+            add(ChartData(yVal1 = "1623510725", xVal = "06-15"))
+            add(ChartData(yVal1 = "1623509282", xVal = "06-16"))
+            add(ChartData(yVal1 = "1623513979", xVal = "06-17"))
+            add(ChartData(yVal1 = "1623519397", xVal = "06-18"))
+            add(ChartData(yVal1 = "1623500522", xVal = "06-19"))
 
             //add(ChartData("1623509282", "06-12"))
             //add(ChartData("1623513979", "06-13"))
