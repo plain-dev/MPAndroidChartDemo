@@ -31,6 +31,9 @@
         <activity
             android:name=".barchart.BarChartActivity"
             android:exported="true" />
+        <activity
+            android:name=".multipleyaxis.MultipleYAxisChartActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

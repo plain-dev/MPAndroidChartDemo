@@ -17,5 +17,11 @@
     <string name="bar_chart_rounded">柱状图（圆角）</string>
     <string name="bar_chart_range">柱状图（范围）</string>
 
+    <string name="start_multiple_y_axis_chart">多 Y 轴示例</string>
+    <string name="multiple_y_axis_chart_title">多 Y 轴示例</string>
+    <string name="multiple_y_axis_combined_chart">组合图（柱图和线图）</string>
+
+    <string name="unit_cpm">次/分</string>
+
     <string name="unknown">未知</string>
 </resources>

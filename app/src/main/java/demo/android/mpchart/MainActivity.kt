@@ -11,6 +11,7 @@ import demo.android.mpchart.barchart.BarChartActivity
 import demo.android.mpchart.base.BaseActivity
 import demo.android.mpchart.base.itemdecoration.GridSpacingItemDecoration
 import demo.android.mpchart.bigdecimal.BigDecimalChartActivity
+import demo.android.mpchart.multipleyaxis.MultipleYAxisChartActivity
 import demo.android.mpchart.toc.adapter.TocAdapter
 import demo.android.mpchart.toc.data.Toc
 
@@ -34,6 +35,13 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
                     title = R.string.start_bar_chart,
                     icon = R.drawable.ic_bar_chart,
                     targetClass = BarChartActivity::class.java
+                )
+            )
+            add(
+                Toc(
+                    title = R.string.start_multiple_y_axis_chart,
+                    icon = R.drawable.ic_multiline_chart,
+                    targetClass = MultipleYAxisChartActivity::class.java
                 )
             )
             // Placeholder
