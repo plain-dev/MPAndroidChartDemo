@@ -14,14 +14,13 @@ import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import demo.android.common.util.px
 import demo.android.common.util.toColorByThemeAttr
-import demo.android.mpchart.util.toRealTimestamp
 import demo.android.common.util.toStringByRes
 import demo.android.mpchart.base.BaseActivity
 import demo.android.mpchart.R
 import demo.android.mpchart.entity.ChartData
 import demo.android.mpchart.formatter.TimestampValueFormat
 import demo.android.mpchart.marker.BigDecimalMarkerView
-import demo.android.mpchart.util.ANIMATE_DURATION_MILLIS
+import demo.android.mpchart.util.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -165,6 +164,14 @@ class BigDecimalChartActivity : BaseActivity(R.layout.activity_big_decimal_chart
 
             //lineChart.invalidate()
             lineChart.animateXY(ANIMATE_DURATION_MILLIS, ANIMATE_DURATION_MILLIS)
+
+            showChartLabel(
+                chart = lineChart,
+                label = R.string.unit_cpm.toStringByRes(),
+                color = labelTextColor,
+                position = YAxisLeftTop,
+                debug = true
+            )
         }
     }
 

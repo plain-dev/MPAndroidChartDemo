@@ -20,7 +20,8 @@ import demo.android.mpchart.base.BaseActivity
 import demo.android.mpchart.entity.ChartData
 import demo.android.mpchart.marker.NormalMarkerView
 import demo.android.mpchart.util.ANIMATE_DURATION_MILLIS
-import demo.android.mpchart.util.showYAxisTopLabel
+import demo.android.mpchart.util.YAxisLeftTop
+import demo.android.mpchart.util.showChartLabel
 
 class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
 
@@ -142,7 +143,13 @@ class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
             //barChart.invalidate()
             barChart.animateXY(ANIMATE_DURATION_MILLIS, ANIMATE_DURATION_MILLIS)
 
-            showYAxisTopLabel(chart = barChart, label = R.string.unit_cpm.toStringByRes(), color = labelTextColor)
+            showChartLabel(
+                chart = barChart,
+                label = R.string.unit_cpm.toStringByRes(),
+                color = labelTextColor,
+                position = YAxisLeftTop,
+                debug = true
+            )
         }
     }
 
@@ -194,7 +201,13 @@ class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
             //rangeChart.invalidate()
             rangeChart.animateXY(ANIMATE_DURATION_MILLIS, ANIMATE_DURATION_MILLIS)
 
-            showYAxisTopLabel(chart = rangeChart, label = R.string.unit_cpm.toStringByRes(), color = labelTextColor)
+            showChartLabel(
+                chart = rangeChart,
+                label = R.string.unit_cpm.toStringByRes(),
+                color = labelTextColor,
+                position = YAxisLeftTop,
+                debug = true
+            )
         }
     }
 
