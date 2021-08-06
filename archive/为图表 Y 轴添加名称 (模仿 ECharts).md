@@ -348,7 +348,7 @@ protected void drawDescriptionInternal(Canvas c, Description description) {
         }
         if (null != description.getText()) {
             c.save();
-            float degrees = description . getDegrees ();
+            float degrees = description.getDegrees();
             if (degrees != 0) {
                 c.rotate(degrees, x, y);
             }
