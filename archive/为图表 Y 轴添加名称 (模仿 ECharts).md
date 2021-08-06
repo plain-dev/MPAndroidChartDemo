@@ -2,6 +2,12 @@
 
 ![预览](../assets/preview/y-axis-name-preview.png)
 
+***MPAndroidChart*** 实现 👆
+
+![预览](../assets/preview/y-axis-name-echarts-preview.png)
+
+***ECharts*** 实现 👆
+
 ## 核心实现
 
 <details>
@@ -388,3 +394,86 @@ barChart.axisRight.setName(
     tag = "Right y-axis"
 )
 ```
+
+
+
+
+
+
+
+
+
+
+
+<!-- ECharts Option -->
+<!-- var colors = ['#fdd2a5', '#afcbff'];
+
+option = {
+    color: colors,
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            crossStyle: {
+                color: '#000'
+            }
+        }
+    },
+    toolbox: {
+        feature: {
+
+        }
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['08-01', '08-02', '08-03', '08-04', '08-05', '08-06'],
+            axisPointer: {
+         
+        type: 'shadow'
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            min: 0,
+            max: 600,
+            nameLocation: 'end',
+            nameGap: 30,
+            nameTextStyle: {
+                color: '#6cadff',
+                align: 'center',
+                verticalAlign: 'center'
+            },
+            name: '次/分钟',
+        },
+        {
+            type: 'value',
+            min: 0,
+            max: 600,
+            nameGap: 60,
+            nameTextStyle: {
+                color: '#fba655',
+                align: 'center',
+                verticalAlign: 'center'
+            },
+            nameLocation: 'center',
+            name: '次/小时',
+        }
+    ],
+    series: [
+        {
+            name: '',
+            type: 'bar',
+            yAxisIndex: 0,
+            data: [20, 60, 100, 210, 100, 55]
+        },
+        {
+            name: '',
+            type: 'bar',
+            yAxisIndex: 1,
+            data: [60, 30, 65, 390, 550, 101]
+        }
+    ]
+}; -->
