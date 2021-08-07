@@ -4,8 +4,7 @@ import android.graphics.Typeface
 import androidx.appcompat.widget.Toolbar
 import androidx.core.graphics.toColorInt
 import com.github.mikephil.charting.charts.CombinedChart
-import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.components.YAxis
+import com.github.mikephil.charting.components.*
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.model.GradientColor
@@ -115,6 +114,22 @@ class MultipleYAxisChartActivity : BaseActivity(R.layout.activity_multiple_y_axi
                 it.granularity = 1f
                 it.labelCount = 5
             }
+
+            combinedChart.axisLeft.axisLabel = AxisLabel(
+                isEnabled = true,
+                location = LocationEnd,
+                name = "次/分钟",
+                align = AlignLeft,
+                verticalAlign = VerticalAlignCenter
+            )
+
+            combinedChart.axisRight.axisLabel = AxisLabel(
+                isEnabled = true,
+                location = LocationCenter,
+                name = "次/小时",
+                align = AlignRight,
+                verticalAlign = VerticalAlignCenter
+            )
 
             // Value Format
             val indexAxisValueFormatter = IndexAxisValueFormatter(dateList)

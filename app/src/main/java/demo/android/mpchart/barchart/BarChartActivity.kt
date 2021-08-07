@@ -6,7 +6,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import com.github.mikephil.charting.charts.BarChart
-import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.*
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import demo.android.charting.expansion.charts.RangeChart
@@ -121,6 +121,14 @@ class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
             //lineChart.axisLeft.valueFormatter
             barChart.xAxis.valueFormatter = indexAxisValueFormatter
 
+            barChart.axisLeft.axisLabel = AxisLabel(
+                isEnabled = true,
+                location = LocationEnd,
+                name = "次/分钟",
+                align = AlignLeft,
+                verticalAlign = VerticalAlignCenter
+            )
+
             val barDataSet = BarDataSet(entryList, "").apply {
                 //valueFormatter
                 //highLightColor
@@ -142,14 +150,6 @@ class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
 
             //barChart.invalidate()
             barChart.animateXY(ANIMATE_DURATION_MILLIS, ANIMATE_DURATION_MILLIS)
-
-            showChartLabel(
-                chart = barChart,
-                label = R.string.unit_cpm.toStringByRes(),
-                color = labelTextColor,
-                position = YAxisLeftTop,
-                debug = true
-            )
         }
     }
 
@@ -200,14 +200,6 @@ class BarChartActivity : BaseActivity(R.layout.activity_bar_chart) {
 
             //rangeChart.invalidate()
             rangeChart.animateXY(ANIMATE_DURATION_MILLIS, ANIMATE_DURATION_MILLIS)
-
-            showChartLabel(
-                chart = rangeChart,
-                label = R.string.unit_cpm.toStringByRes(),
-                color = labelTextColor,
-                position = YAxisLeftTop,
-                debug = true
-            )
         }
     }
 
