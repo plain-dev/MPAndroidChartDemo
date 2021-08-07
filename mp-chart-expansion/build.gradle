@@ -33,6 +33,6 @@ android {
 dependencies {
     implementation project(path: ':common-util')
     // Chart
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation project(path: ':MPAndroidChart:MPChartLib')
     implementation 'androidx.annotation:annotation:1.2.0'
 }
