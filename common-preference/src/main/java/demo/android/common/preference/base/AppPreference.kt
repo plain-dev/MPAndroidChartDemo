@@ -8,6 +8,8 @@ import androidx.annotation.StringRes
 import com.google.android.material.internal.ContextUtils
 import com.google.common.collect.ImmutableList
 import demo.android.common.preference.data.Option
+import demo.android.common.util.ActivityManager
+import demo.android.common.util.quickErrorLog
 
 abstract class AppPreference(
     /**
@@ -38,8 +40,19 @@ abstract class AppPreference(
             if (option.id == optionId) {
                 getSharedPreferences(context).edit().putInt(id, optionId).apply()
                 apply(context, option)
-                if (shouldRecreateActivityOnOptionChanged()) {
-                    recreateActivityIfPossible(context)
+                when (shouldRecreateActivityOnOptionChanged()) {
+                    NotRecreate -> {
+                        "NotRecreate".quickErrorLog("AppPreference")
+                        // do nothing
+                    }
+                    RecreateCurrent -> {
+                        "RecreateCurrent".quickErrorLog("AppPreference")
+                        recreateActivityIfPossible(context)
+                    }
+                    RecreateAll -> {
+                        "RecreateAll".quickErrorLog("AppPreference")
+                        recreateAllActivityIfPossible()
+                    }
                 }
                 return
             }
@@ -87,6 +100,12 @@ abstract class AppPreference(
         ContextUtils.getActivity(context)?.recreate()
     }
 
+    private fun recreateAllActivityIfPossible() {
+        for (activity in ActivityManager.activities) {
+            recreateActivityIfPossible(activity)
+        }
+    }
+
     /**
      * Override this method and return `false` when the preferences settings is not changeable.
      */
@@ -98,9 +117,7 @@ abstract class AppPreference(
      * Override this method and return `true` if the current activity should be restarted after
      * the selected option is changed.
      */
-    protected open fun shouldRecreateActivityOnOptionChanged(): Boolean {
-        return false
-    }
+    protected open fun shouldRecreateActivityOnOptionChanged(): RecreateActivityType = NotRecreate
 
     /**
      * Returns all available options of the preference.
@@ -113,3 +130,8 @@ abstract class AppPreference(
     protected abstract fun getDefaultOption(): Option
 
 }
+
+sealed class RecreateActivityType
+object NotRecreate : RecreateActivityType()
+object RecreateCurrent : RecreateActivityType()
+object RecreateAll : RecreateActivityType()

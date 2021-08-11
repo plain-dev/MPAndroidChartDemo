@@ -6,6 +6,8 @@ import com.google.common.collect.ImmutableList
 import demo.android.common.preference.base.AppPreference
 import demo.android.common.preference.data.Option
 import demo.android.common.preference.R
+import demo.android.common.preference.base.RecreateAll
+import demo.android.common.preference.base.RecreateCurrent
 import demo.android.common.preference.window.WindowPreferencesManager
 
 class FullscreenPreference : AppPreference(R.string.fullscreen_preference_description) {
@@ -51,6 +53,6 @@ class FullscreenPreference : AppPreference(R.string.fullscreen_preference_descri
         return DEFAULT_OPTION
     }
 
-    override fun shouldRecreateActivityOnOptionChanged() = true
+    override fun shouldRecreateActivityOnOptionChanged() = RecreateAll
 
 }
